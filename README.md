@@ -1,5 +1,7 @@
 # marvel-us.github.io
 
+<!-- Add to all pages -->
+"Data provided by Marvel. © 2014 Marvel"
 
 User Story
     1. sign in
