@@ -2,7 +2,7 @@ const test = QUnit.test;
 
 QUnit.module('html template');
 
-import { makeResultListTemplate } from '../src/comics/comic-list-components.js';
+import { makeResultListTemplate } from '../../src/comics/comic-list-components.js';
 
 test('result list for index html template', assert => {
     // arrange

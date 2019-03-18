@@ -1,4 +1,4 @@
-import loadComicList from '../src/comics/comic-list-components.js';
+import loadComicList from './comics/comic-list-components.js';
 
 // open local host and you should be able to play with this
 
