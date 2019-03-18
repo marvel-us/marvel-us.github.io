@@ -14,20 +14,20 @@
             <nav>
                 <!-- If signed in display: wishlist, library, marketplace(if able to build), logout button, and display prof name and pic -->
 
-                <div>
-                    wishlist
-                    library
-                    profile
-
-                    ^^^ these only display if logged in
-
-                    <a href="profile.html">
-                            <img src="#" alt="your icon"> <span>Name</span>
-                    </a>
+                <div id="profile-header">
+                    <ul>
+                        <li><a href="./wishlist.html">Wishlist</a></li>
+                        <li><a href="./library.html">Library</a></li>
+                        <li><span id="user-name-display">User Name</span></li>
+                        <ul id="drop-down">
+                            <li><a href="./user-profile.html">User Profile</a></li>
+                            <li><span id="log-out">Log Out</span></li>
+                        </ul>
+                    </ul>
                 </div>
 
 
-                <!-- if guest display: login/signup -->
+                <!-- if guest display: log in/sign up -->
                 <!-- <a href="./pages/auth.html">Sign In</a> -->
             </nav>
         </header>
