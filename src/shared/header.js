@@ -11,6 +11,7 @@ export function makeHeaderTemplate() {
 
 export function makeProfileTemplate(user) {
     let html = null;
+
     if(!user) {
         html = /*html*/`
         <nav>
@@ -38,4 +39,19 @@ export function makeProfileTemplate(user) {
     const template = document.createElement('template');
     template.innerHTML = html;
     return template.content;
+}
+
+const headerContainer = document.getElementById('header-container');
+export default function loadHeader() {
+    //remove user object after firebase works
+    let user = null;
+    const user = {
+        displayName: 'Tom Hanks'
+    };
+    const headerHtml = makeHeaderTemplate();
+    headerContainer.appendChild(headerHtml);
+    const header = headerHtml.querySelector('header');
+
+    const profileHtml = makeProfileTemplate(user);
+    headerContainer.appendChild(profileHtml);
 }
