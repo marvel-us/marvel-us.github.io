@@ -13,6 +13,7 @@ fetch('https://gateway.marvel.com:443/v1/public/characters?name=thor&apikey=698e
         .then(response => response.json())
         .then(results => {
             const comicList = results.data.results;
+            console.log(results.data);
             loadComicList(comicList);
         });
     })
