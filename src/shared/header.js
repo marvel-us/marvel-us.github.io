@@ -45,9 +45,9 @@ const headerContainer = document.getElementById('header-container');
 export default function loadHeader() {
     //remove user object after firebase works
     let user = null;
-    const user = {
-        displayName: 'Tom Hanks'
-    };
+    // const user = {
+    //     displayName: 'Tom Hanks'
+    // };
     const headerHtml = makeHeaderTemplate();
     headerContainer.appendChild(headerHtml);
     const header = headerHtml.querySelector('header');
