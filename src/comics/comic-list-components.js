@@ -11,3 +11,14 @@ export function makeResultListTemplate(comic) {
     template.innerHTML = html;
     return template.content;
 }
+
+const resultList = document.getElementById('result-list');
+
+export default function loadComicList(comics) {
+    // while loop to remove previous results
+
+    comics.forEach(comic => {
+        const html = makeResultListTemplate(comic);
+        resultList.appendChild(html);
+    });
+}
