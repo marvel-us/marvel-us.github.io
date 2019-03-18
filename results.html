@@ -10,16 +10,22 @@
 </head>
 <body>
     <section id="header-container"></section>
-    
-        <form id="search-form">
-            <input type="text" placeholder="" name="search-term" id="search-term">
-            <button id="search-button">Search</button>
-        </form>
-        <!-- search filters and sorts -->
 
-        <section id="results-list"></section>
+    <form id="search-form">
+        <input type="text" placeholder="" name="search-term" id="search-term">
+        <button id="search-button">Search</button>
+    </form>
+    <!-- search filters and sorts -->
 
-        <footer>"Data provided by Marvel. © 2014 Marvel"</footer>
+    <section>
+        <button id="previous-button">&lt; Previous</button>
+        <span id="current-page">1</span> of <span id="total-pages">100</span>
+        <button id="next-button">Next &gt;</button>
+    </section>
+
+    <section id="results-list"></section>
+
+    <footer>"Data provided by Marvel. © 2014 Marvel"</footer>
     <script type="module" src="./src/main.js">  </script>
 </body>
 </html>
