@@ -6,36 +6,24 @@ import loadHeader from './shared/header.js';
 
 loadHeader();
 // https://gateway.marvel.com:443/v1/public/comics?characters=storm&apikey=
-const API_KEY = '698ecfea67de32ae8e6a3b78e74af2b3';
+const API_KEY = '8fc44adf47a9e16e282456f1eaed601b';
 let baseUrl = 'https://gateway.marvel.com:443/v1/public/comics?';
 
-// fetch('https://gateway.marvel.com/v1/public/comics?&apikey=698ecfea67de32ae8e6a3b78e74af2b3')
-//     .then(response => response.json())
-//     .then(results => {
-//         console.log('character: ', results);
-//         const comicList = results.data.results;
-//         loadComicList(comicList);
-//     });
-fetch('https://gateway.marvel.com/v1/public/comics?title=ultimate&apikey=698ecfea67de32ae8e6a3b78e74af2b3')
+let characterId = null;
+
+fetch('https://gateway.marvel.com:443/v1/public/characters?name=thor&apikey=698ecfea67de32ae8e6a3b78e74af2b3')
     .then(response => response.json())
     .then(results => {
-        console.log('character: ', results);
-        const comicList = results.data.results;
-        loadComicList(comicList);
-    });
+        return results.data.results[0].id
+    })
+    .then(character => {
+        console.log(character);
+        fetch('https://gateway.marvel.com:443/v1/public/comics?characters=1009664&apikey=698ecfea67de32ae8e6a3b78e74af2b3')
+        .then(response => response.json())
+        .then(results => {
+            console.log('character: ', results);
+            const comicList = results.data.results;
+            loadComicList(comicList);
+        });
+    })
 
-// fetch('https://gateway.marvel.com:443/v1/public/comics?series=storm&apikey=698ecfea67de32ae8e6a3b78e74af2b3')
-//     .then(response => response.json())
-//     .then(results => {
-//         console.log('series: ', results.data.results);
-//         const comicList = results.data.results;
-//         loadComicList(comicList);
-//     });
-
-// fetch('https://gateway.marvel.com:443/v1/public/comics?title=storm&apikey=698ecfea67de32ae8e6a3b78e74af2b3')
-//     .then(response => response.json())
-//     .then(results => {
-//         console.log(results.data.results);
-//         const comicList = results.data.results;
-//         loadComicList(comicList);
-//     });
