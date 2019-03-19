@@ -8,7 +8,6 @@ export function makeCharacterSearchUrl(searchOptions) {
     url.searchParams.set('name', searchOptions.keyword);
     url.searchParams.set('apikey', API_KEY);
     
-    console.log(url.href);
     return url.toString();
 }
 

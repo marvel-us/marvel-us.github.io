@@ -54,12 +54,10 @@ export default function loadHeader(options) {
 
     auth.onAuthStateChanged(user => {
         if(user) {
-            console.log('hi');
             const userDom = makeProfileTemplate(user);
             const signOutButton = userDom.querySelector('#log-out');
-            console.log(signOutButton);
+
             signOutButton.addEventListener('click', () => {
-                console.log('signed out');
                 auth.signOut();
                 // window.location = './index.html';
             });
