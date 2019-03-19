@@ -59,18 +59,17 @@ nav {
     margin-left: 40px;
 }
 
-#user-name-display:hover + #drop-down {
-    display: block;
-    color: pink;
-}
-
-#drop-down {
-    background-color: purple;
+.drop-down-content {
     position: absolute;
     right: 0;
     top: 20px;
     padding: 20px 0;
     display: none;
+    background-color: purple;
+}
+
+.nav-li:hover .drop-down-content {
+    display: block;
 }
 
 #user-name-display {
