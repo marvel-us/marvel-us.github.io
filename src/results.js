@@ -9,14 +9,20 @@ import { updateSearchTerm } from './comics/search-components.js';
 
 loadHeader();
 
-
+if(window.location.hash) {
+    fetchSearchResults();
+}
 
 window.addEventListener('hashchange', () => {
+    fetchSearchResults();
+});
+
+
+function fetchSearchResults() {
     const existingQuery = window.location.hash.slice(1);
     const searchOptions = readFromQuery(existingQuery);
     const url = makeCharacterSearchUrl(searchOptions);
     updateSearchTerm(searchOptions.keyword);
-
 
     fetch(url)
         .then(response => response.json())
@@ -32,7 +38,4 @@ window.addEventListener('hashchange', () => {
                     loadComicList(comicList);
                 });
         });
-});
-
-
-
+}
