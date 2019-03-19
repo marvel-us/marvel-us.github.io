@@ -21,8 +21,10 @@ export function makeResultListTemplate(comic) {
 const resultsList = document.getElementById('results-list');
 
 export default function loadComicList(comics) {
-    // while loop to remove previous results //
-
+    while(resultsList.firstChild) {
+        resultsList.firstChild.remove();
+    }
+    
     comics.forEach(comic => {
         const html = makeResultListTemplate(comic);
         resultsList.appendChild(html);
