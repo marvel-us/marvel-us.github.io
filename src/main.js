@@ -4,6 +4,7 @@ import makeCharacterSearchUrl from './make-search-url.js';
 
 loadHeader();
 
+// make query functions to obtain searchOptions object
 const searchOptions = {
     searchTerm: 'hulk',
     page: 1
@@ -23,6 +24,7 @@ fetch(url)
         .then(response => response.json())
         .then(results => {
             const comicList = results.data.results;
+            console.log(comicList);
             loadComicList(comicList);
         });
     })
