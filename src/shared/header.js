@@ -1,3 +1,5 @@
+import { auth } from '../firebase/firebase.js';
+
 export function makeHeaderTemplate() {
     const html = `
     <header>
@@ -42,16 +44,32 @@ export function makeProfileTemplate(user) {
 }
 
 const headerContainer = document.getElementById('header-container');
-export default function loadHeader() {
-    //remove user object after firebase works
-    let user = null;
-    // const user = {
-    //     displayName: 'Tom Hanks'
-    // };
+export default function loadHeader(options) {
     const headerHtml = makeHeaderTemplate();
     headerContainer.appendChild(headerHtml);
-    const header = headerHtml.querySelector('header');
+    //const header = headerHtml.querySelector('header');
+    if(options && options.skipAuth) {
+        return;
+    }
 
-    const profileHtml = makeProfileTemplate(user);
-    headerContainer.appendChild(profileHtml);
+    auth.onAuthStateChanged(user => {
+        if(user) {
+            console.log('hi');
+            const userDom = makeProfileTemplate(user);
+            const signOutButton = userDom.querySelector('#log-out');
+            console.log(signOutButton);
+            signOutButton.addEventListener('click', () => {
+                console.log('signed out');
+                auth.signOut();
+                // window.location = './index.html';
+            });
+            headerContainer.appendChild(userDom);
+        } else {
+
+// WHILE LOOP?
+
+            const userDom = makeProfileTemplate();
+            headerContainer.appendChild(userDom);
+        }
+    });
 }
