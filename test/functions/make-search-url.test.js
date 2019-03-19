@@ -2,7 +2,7 @@ const test = QUnit.test;
 
 QUnit.module('search');
 
-import { makeCharacterSearchUrl, makeComicSearchUrl } from '../../src/make-search-url.js';
+import { makeCharacterSearchUrl, makeComicSearchUrl } from '../../src/comics/make-search-url.js';
 
 test('make character search url', assert => {
     const searchOptions = {
