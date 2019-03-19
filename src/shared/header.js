@@ -28,10 +28,12 @@ export function makeProfileTemplate(user) {
                     <li class="nav-li"><a href="./wishlist.html">Wishlist</a></li>
                     <li class="nav-li"><a href="./library.html">Library</a></li>
                     <li class="nav-li"><span id="user-name-display">${user.displayName}</span></li>
-                    <ul id="drop-down" class="drop-down-content">
-                        <li><a href="./user-profile.html">User Profile</a></li>
-                        <li><span id="log-out">Log Out</span></li>
-                    </ul>
+                    <div id="drop-down">
+                        <ul class="drop-down-content">
+                            <li><a href="./user-profile.html">User Profile</a></li>
+                            <li><span id="log-out">Log Out</span></li>
+                        </ul>
+                    </div>
                 </ul>
             </div>
         </nav>
