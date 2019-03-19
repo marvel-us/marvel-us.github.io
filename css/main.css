@@ -6,8 +6,12 @@
 @font-face{
     font-family:'BentonSans';
     src: url('../assets/fonts/bentonsans.otf') format('opentype');
-  }
+}
 
 body {
     font-family: 'PT Sans', sans-serif;
+}
+
+h2 {
+    font-family: 'BentonSans', 'Gil Sans', sans-serif;
 }
