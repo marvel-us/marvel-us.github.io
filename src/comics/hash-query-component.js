@@ -5,8 +5,7 @@ export function writeSearchToQuery(existingQuery, searchOptions) {
     return searchParams.toString();
 }
 
-export function writePageToQuery(existingQuery, searchOptions) {
-    const page = searchOptions.page;
+export function writePageToQuery(existingQuery, page) {
     const searchParams = new URLSearchParams(existingQuery);
     searchParams.set('page', page);
     return searchParams.toString();

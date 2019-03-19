@@ -6,6 +6,7 @@ import { makeCharacterSearchUrl, makeComicSearchUrl } from './comics/make-search
 import './comics/search-components.js';
 import { readFromQuery } from './comics/hash-query-component.js';
 import { updateSearchTerm } from './comics/search-components.js';
+import updatePaging from './comics/paging-component.js';
 
 loadHeader();
 
@@ -36,6 +37,11 @@ function fetchSearchResults() {
                 .then(results => {
                     const comicList = results.data.results;
                     loadComicList(comicList);
+                    const pagingInfo = {
+                        page: searchOptions.page,
+                        totalPages: Math.ceil(results.data.total / 20)
+                    };
+                    updatePaging(pagingInfo);
                 });
         });
 }

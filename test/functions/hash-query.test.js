@@ -29,13 +29,11 @@ test('write search to existing query', assert => {
 });
 
 test('write page 1 to existing query', assert => {
-    const searchOptions = {
-        page: 1
-    };
+    const page = 1;
     const existingQuery = 'name=hulk';
     const expected = 'name=hulk&page=1';
 
-    const results = writePageToQuery(existingQuery, searchOptions);
+    const results = writePageToQuery(existingQuery, page);
 
     assert.equal(results, expected);
 });
