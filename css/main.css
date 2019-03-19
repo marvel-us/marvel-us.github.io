@@ -23,3 +23,55 @@ h2 {
 h3 {
     font-family: 'BentonSans', 'Gil Sans', sans-serif;
 }
+
+ul {
+    list-style-type: none;
+}
+
+/* header and nav */
+
+#header-container {
+    background-color: pink;
+    display: flex;
+    /* height: 110px; */
+    padding: 30px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header img {
+    width: 180px;
+}
+
+nav {
+    font-family: 'BentonSans', 'Gil Sans', sans-serif;
+    text-transform: uppercase;
+    font-size: 20px;
+    background-color: yellow;
+}
+
+.profile-header-ul {
+    display: flex;
+    position: relative;
+}
+
+.nav-li {
+    margin-left: 40px;
+}
+
+.drop-down-content {
+    background-color: purple;
+    position: absolute;
+    right: 0;
+    top: 20px;
+    padding: 20px 0;
+    display: hidden;
+}
+
+#user-name-display {
+    cursor: pointer;
+}
+
+#user-name-display:hover .drop-down-content {
+    display: block;
+}
