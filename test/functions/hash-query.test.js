@@ -3,9 +3,9 @@ const test = QUnit.test;
 QUnit.module('Hash Query');
 
 function writeToQuery(existingQuery, searchOptions) {
-    const query = searchOptions.keyword;
+    const keyword = searchOptions.keyword;
     const searchParams = new URLSearchParams(existingQuery);
-    searchParams.set('name', query);
+    searchParams.set('name', keyword);
     return searchParams.toString();
 }
 
@@ -25,7 +25,7 @@ test('write search term to empty hash', assert => {
     assert.equal(result, expected);
 });
 
-test('writ search to existing query', assert => {
+test('write search to existing query', assert => {
     // arrange
     const searchOptions = {
         keyword: 'hulk',
@@ -40,3 +40,31 @@ test('writ search to existing query', assert => {
     // assert
     assert.equal(result, expected);
 });
+
+
+// write page to hash query
+
+function writePageToQuery(existingQuery, searchOptions) {
+    const page = searchOptions.page;
+    const searchParams = new URLSearchParams(existingQuery);
+    searchParams.set('page', page);
+    return searchParams.toString();
+}
+
+test('write page 1 to existing query', assert => {
+    // arrange
+    const searchOptions = {
+        page: 1
+    };
+
+    const existingQuery = 'name=hulk';
+
+    const expected = 'name=hulk&page=1';
+    // act
+    const results = writePageToQuery(existingQuery, searchOptions);
+    // assert
+    assert.equal(results, expected);
+});
+
+
+// read search options from hash query
