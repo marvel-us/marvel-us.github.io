@@ -16,7 +16,6 @@ const offset = (searchOptions.page - 1) * 20;
 
 const url = makeCharacterSearchUrl(searchOptions);
 
-
 // fetch(url)
 //     .then(response => response.json())
 //     .then(results => {
