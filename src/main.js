@@ -2,7 +2,7 @@
 
 import loadComicList from './comics/comic-list-components.js';
 import loadHeader from './shared/header.js';
-import makeCharacterSearchUrl from './make-search-url.js';
+import { makeCharacterSearchUrl, makeComicSearchUrl } from './make-search-url.js';
 
 loadHeader();
 
