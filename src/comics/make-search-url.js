@@ -5,7 +5,7 @@ const SEARCH_COMICS_URL = `${BASE_URL}/comics?`;
 
 export function makeCharacterSearchUrl(searchOptions) {
     const url = new URL(SEARCH_CHARACTERS_URL);
-    url.searchParams.set('name', searchOptions.keyword);
+    url.searchParams.set('nameStartsWith', searchOptions.keyword);
     url.searchParams.set('apikey', API_KEY);
     
     return url.toString();
