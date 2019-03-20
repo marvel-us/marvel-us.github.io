@@ -1,3 +1,64 @@
 body {
-    background-color: #666666;
+    background-image: url('../assets/backgrounds/spiderman-bg.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#content-container-all {
+    /* background-color: yellow; */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#search-form {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    bottom: 40px;
+}
+
+#search-term-index {
+    width: 580px;
+    height: 40px;
+    color: #2e2c25;
+    font-size: 16px;
+    outline: none;
+    padding: 20px;
+    border: 2px solid #2e2c25;
+    border-radius: 20px 0 0 20px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#search-term-index:focus {
+    border: 2px solid #7f7f7f;
+}
+
+#search-button-index {
+    width: 80px;
+    height: 44px;
+    font-size: 16px;
+    background-color: #2e2c25;
+    color: white;
+    border: 2px solid #2e2c25;
+    border-radius: 0 20px 20px 0;
+    outline: none;
+}
+
+#search-button-index:focus {
+    background-color: #7f7f7f;
+    border: 2px solid #7f7f7f;
+}
+
+footer {
+    color: white;
+    font-size: 10px;
+    align-self: center;
+    padding: 0 0 10px 0;
 }

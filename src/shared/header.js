@@ -3,7 +3,7 @@ import { auth } from '../firebase/firebase.js';
 export function makeHeaderTemplate() {
     const html = `
     <header>
-        <a href="index.html"><img src="./assets/marvel-us-logo-color.svg" alt="MarvelUS"></a>
+        <a href="index.html"><img src="./assets/marvel-us-logo-white.svg" alt="MarvelUS"></a>
     </header>
     `;
     const template = document.createElement('template');
