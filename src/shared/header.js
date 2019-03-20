@@ -53,19 +53,17 @@ export default function loadHeader(options) {
     }
 
     auth.onAuthStateChanged(user => {
+
         if(user) {
             const userDom = makeProfileTemplate(user);
             const signOutButton = userDom.querySelector('#log-out');
 
             signOutButton.addEventListener('click', () => {
                 auth.signOut();
-                // window.location = './index.html';
+                window.location = './index.html';
             });
             headerContainer.appendChild(userDom);
         } else {
-
-// WHILE LOOP?
-
             const userDom = makeProfileTemplate();
             headerContainer.appendChild(userDom);
         }
