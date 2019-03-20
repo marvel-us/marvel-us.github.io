@@ -5,15 +5,12 @@ const nextButton = document.getElementById('next-button');
 const currentPage = document.getElementById('current-page');
 const totalPages = document.getElementById('total-pages');
 
-
 let currentPageNum = 1;
 
 export default function updatePaging(pagingInfo) {
     currentPageNum = pagingInfo.page;
     currentPage.textContent = currentPageNum;
-
     totalPages.textContent = pagingInfo.totalPages;
-
     nextButton.disabled = currentPageNum === pagingInfo.totalPages;
     previousButton.disabled = currentPageNum === 1;
 }
