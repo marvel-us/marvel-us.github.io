@@ -6,7 +6,6 @@ body {
 }
 
 #content-container-all {
-    /* background-color: yellow; */
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -29,31 +28,42 @@ body {
     font-size: 16px;
     outline: none;
     padding: 20px;
-    border: 2px solid #2e2c25;
+    border-top: 2px solid #2e2c25;
+    border-left: 2px solid #2e2c25;
+    border-bottom: 2px solid #2e2c25;
+    border-right: none;
     border-radius: 20px 0 0 20px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+    transition: 0.2s all linear;
+
 }
 
 #search-term-index:focus {
-    border: 2px solid #7f7f7f;
+    border-top: 2px solid #7f7f7f;
+    border-left: 2px solid #7f7f7f;
+    border-bottom: 2px solid #7f7f7f;
+    transition: 0.2s all linear;
 }
 
 #search-button-index {
     width: 80px;
     height: 44px;
     font-size: 16px;
+    padding-right: 5px;
     background-color: #2e2c25;
     color: white;
     border: 2px solid #2e2c25;
     border-radius: 0 20px 20px 0;
     outline: none;
+    transition: 0.1s all linear;
 }
 
-#search-button-index:focus {
+#search-button-index:active {
     background-color: #7f7f7f;
     border: 2px solid #7f7f7f;
+    transition: 0.1s all linear;
 }
 
 footer {

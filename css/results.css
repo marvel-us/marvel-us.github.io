@@ -1,3 +1,10 @@
+#header-container {
+    background-image: url('../assets/backgrounds/hulk-bg.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 #results-list {
     display: flex;
     flex-direction: row;
