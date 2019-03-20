@@ -39,6 +39,10 @@ ul {
     list-style-type: none;
 }
 
+#library-icon, #wishlist-icon {
+    cursor: pointer;
+}
+
 /* header and nav */
 
 #header-container {

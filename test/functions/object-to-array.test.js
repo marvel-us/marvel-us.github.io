@@ -1,6 +1,8 @@
 const test = QUnit.test;
 QUnit.module('convert object to array');
 
+import objectToArray from '../../src/object-to-array.js';
+
 test('converts library/wishlist object into array', assert => {
     //arrange
     const object = {

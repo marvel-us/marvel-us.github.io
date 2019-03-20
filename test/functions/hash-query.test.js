@@ -9,7 +9,7 @@ test('write search term to empty hash', assert => {
         keyword: 'thor',
     };
     const existingQuery = '';
-    const expected = 'name=thor';
+    const expected = 'name=thor&page=1';
 
     const result = writeSearchToQuery(existingQuery, searchOptions);
 
@@ -21,7 +21,7 @@ test('write search to existing query', assert => {
         keyword: 'hulk',
     };
     const existingQuery = 'name=thor';
-    const expected = 'name=hulk';
+    const expected = 'name=hulk&page=1';
 
     const result = writeSearchToQuery(existingQuery, searchOptions);
 

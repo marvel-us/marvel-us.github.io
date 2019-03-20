@@ -1,18 +1,19 @@
 import { auth, wishlistByUserRef, libraryByUserRef } from '../firebase/firebase.js';
 
+
 export function makeResultListTemplate(comic) {
     const html = /*html*/ `
     <div id="result-card">
         <div style="background-image: url(${comic.thumbnail.path}.${comic.thumbnail.extension})" id="result-card-image">
-            <div id="result-card-h2">
-                <h2>${comic.title}</h2>
-            </div>
-        </div>
-
-        <div id="result-card-bottom">
-            <span id="result-information">Issue: ${comic.issueNumber} | ${comic.series.name}</span>
-            <span id="result-user-control">
-                <img src="assets/icons/library-noselect.svg" id="library-icon" class="library-icon" alt="library">  
+    <div id="result-card-h2">
+    <h2>${comic.title}</h2>
+    </div>
+    </div>
+    
+    <div id="result-card-bottom">
+    <span id="result-information">Issue: ${comic.issueNumber} | ${comic.series.name}</span>
+    <span id="result-user-control">
+                <img src="assets/icons/library-noselect.svg" id="library-icon" alt="library">  
                 <img src="assets/icons/wishlist-noselect.svg" id="wishlist-icon" alt="wishlist">
             </span>
         </div>
@@ -39,7 +40,9 @@ export default function loadComicList(comics) {
         const userId = auth.currentUser.uid;
 
         const userLibraryRef = libraryByUserRef.child(userId);
+        console.log(comic);
         const userLibraryComicRef = userLibraryRef.child(comic.id);
+        console.log(userLibraryComicRef);
         userLibraryComicRef.once('value')
         .then(snapshot => {
             const value = snapshot.val();
@@ -66,10 +69,10 @@ export default function loadComicList(comics) {
                     removeFromLibrary();
                 } else {
                     userLibraryComicRef.set( {
+                        id: comic.id,
                         title: comic.title,
-                        seriesName: comic.series.name,
-                        thumbnailPath: comic.thumbnail.path,
-                        thumbnailExtension: comic.thumbnail.extension,
+                        series: { name: comic.series.name },
+                        thumbnail: { path: comic.thumbnail.path, extension: comic.thumbnail.extension },
                         issue: comic.issueNumber
                     });
                     addToLibrary();
