@@ -1,3 +1,5 @@
+import { auth, wishlistByUserRef, libraryByUserRef } from '../firebase/firebase.js';
+
 export function makeResultListTemplate(comic) {
     const html = /*html*/ `
     <div id="result-card">
@@ -31,5 +33,59 @@ export default function loadComicList(comics) {
     comics.forEach(comic => {
         const html = makeResultListTemplate(comic);
         resultsList.appendChild(html);
+
+        const library = document.getElementById('library-icon');
+        const wishlist = html.querySelector('#wishlist-icon');
+
+        const userId = auth.currentUser.uid;
+
+        const userLibraryRef = libraryByUserRef.child(userId);
+        const userLibraryComicRef = userLibraryRef.child(comic.id);
+        userLibraryComicRef.once('value')
+            .then(snapshot => {
+                const value = snapshot.val();
+                let inLibrary = false;
+                if(value) {
+                    addToLibrary();
+                } else {
+                    removeFromLibrary();
+                }
+
+                function addToLibrary() {
+                    inLibrary = true;
+                    library.src = "assets/icons/library-select.svg";
+                }
+
+                function removeFromLibrary() {
+                    inLibrary = false;
+                    library.src = "assets/icons/library-noselect.svg"
+                }
+
+                library.addEventListener('click', () => {
+                    if(inLibrary) {
+                        userLibraryRef.remove();
+                        removeFromLibrary();
+                    } else {
+                        userLibraryRef.set( {
+                            title: comic.title,
+                            seriesName: comic.series.name,
+                            thumbnailPath: comic.thumbnail.path,
+                            thumbnailExtension: comic.thumbnail.extension,
+                            issue: comic.issueNumber
+                        });
+                        addToLibrary();
+                    }
+                })
+            })
+
+
+
+
+
+
+        // const userWishlistRef = wishlistByUserRef.child(userId);
+        // const userWishlistComicRef = userWishlistRef.child(comic.title);
+
+
     });
 }
