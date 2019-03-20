@@ -2,6 +2,7 @@ export function writeSearchToQuery(existingQuery, searchOptions) {
     const keyword = searchOptions.keyword;
     const searchParams = new URLSearchParams(existingQuery);
     searchParams.set('name', keyword);
+    searchParams.set('page', 1);
     return searchParams.toString();
 }
 
