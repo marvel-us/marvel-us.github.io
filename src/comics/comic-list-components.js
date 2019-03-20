@@ -33,13 +33,11 @@ export default function loadComicList(comics) {
     comics.forEach(comic => {
         const html = makeResultListTemplate(comic);
 
-        // append last
-        
         const library = html.getElementById('library-icon');
-        // const library = html.querySelector('#library-icon');
-        const wishlist = html.querySelector('#wishlist-icon');
+        const wishlist = html.getElementById('wishlist-icon');
         
         const userId = auth.currentUser.uid;
+
         const userLibraryRef = libraryByUserRef.child(userId);
         const userLibraryComicRef = userLibraryRef.child(comic.id);
         userLibraryComicRef.once('value')
@@ -53,13 +51,11 @@ export default function loadComicList(comics) {
             }
             
             function addToLibrary() {
-                console.log('added');
                 inLibrary = true;
                 library.src = "assets/icons/library-select.svg";
             }
             
             function removeFromLibrary() {
-                console.log('removed');
                 inLibrary = false;
                 library.src = "assets/icons/library-noselect.svg"
             }
@@ -80,12 +76,47 @@ export default function loadComicList(comics) {
                 }
             })
         })
+
+        const userWishlistRef = wishlistByUserRef.child(userId);
+        const userWishlistComicRef = userWishlistRef.child(comic.id);
+        userWishlistComicRef.once('value')
+        .then(snapshot => {
+            const value = snapshot.val();
+            let inWishlist = false;
+            if(value) {
+                addToWishlist();
+            } else {
+                removeFromWishlist();
+            }
+            
+            function addToWishlist() {
+                inWishlist = true;
+                wishlist.src = "assets/icons/wishlist-select.svg";
+            }
+            
+            function removeFromWishlist() {
+                inWishlist = false;
+                wishlist.src = "assets/icons/wishlist-noselect.svg"
+            }
+            
+            wishlist.addEventListener('click', () => {
+                if(inWishlist) {
+                    userWishlistComicRef.remove();
+                    removeFromWishlist();
+                } else {
+                    userWishlistComicRef.set( {
+                        title: comic.title,
+                        seriesName: comic.series.name,
+                        thumbnailPath: comic.thumbnail.path,
+                        thumbnailExtension: comic.thumbnail.extension,
+                        issue: comic.issueNumber
+                    });
+                    addToWishlist();
+                }
+            })
+        })
         
         resultsList.appendChild(html);
-
-        // const userWishlistRef = wishlistByUserRef.child(userId);
-        // const userWishlistComicRef = userWishlistRef.child(comic.title);
-
 
     });
 }
