@@ -108,10 +108,10 @@ export default function loadComicList(comics) {
                     removeFromWishlist();
                 } else {
                     userWishlistComicRef.set( {
+                        id: comic.id,
                         title: comic.title,
-                        seriesName: comic.series.name,
-                        thumbnailPath: comic.thumbnail.path,
-                        thumbnailExtension: comic.thumbnail.extension,
+                        series: { name: comic.series.name },
+                        thumbnail: { path: comic.thumbnail.path, extension: comic.thumbnail.extension },
                         issue: comic.issueNumber
                     });
                     addToWishlist();
