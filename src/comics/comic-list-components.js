@@ -12,7 +12,7 @@ export function makeResultListTemplate(comic) {
         <div id="result-card-bottom">
             <span id="result-information">Issue: ${comic.issueNumber} | ${comic.series.name}</span>
             <span id="result-user-control">
-                <img src="assets/icons/library-noselect.svg" id="library-icon" alt="library">  
+                <img src="assets/icons/library-noselect.svg" id="library-icon" class="library-icon" alt="library">  
                 <img src="assets/icons/wishlist-noselect.svg" id="wishlist-icon" alt="wishlist">
             </span>
         </div>
@@ -32,56 +32,56 @@ export default function loadComicList(comics) {
     
     comics.forEach(comic => {
         const html = makeResultListTemplate(comic);
-        resultsList.appendChild(html);
 
-        const library = document.getElementById('library-icon');
+        // append last
+        
+        const library = html.getElementById('library-icon');
+        // const library = html.querySelector('#library-icon');
         const wishlist = html.querySelector('#wishlist-icon');
-
+        
         const userId = auth.currentUser.uid;
-
         const userLibraryRef = libraryByUserRef.child(userId);
         const userLibraryComicRef = userLibraryRef.child(comic.id);
         userLibraryComicRef.once('value')
-            .then(snapshot => {
-                const value = snapshot.val();
-                let inLibrary = false;
-                if(value) {
-                    addToLibrary();
-                } else {
+        .then(snapshot => {
+            const value = snapshot.val();
+            let inLibrary = false;
+            if(value) {
+                addToLibrary();
+            } else {
+                removeFromLibrary();
+            }
+            
+            function addToLibrary() {
+                console.log('added');
+                inLibrary = true;
+                library.src = "assets/icons/library-select.svg";
+            }
+            
+            function removeFromLibrary() {
+                console.log('removed');
+                inLibrary = false;
+                library.src = "assets/icons/library-noselect.svg"
+            }
+            
+            library.addEventListener('click', () => {
+                if(inLibrary) {
+                    userLibraryComicRef.remove();
                     removeFromLibrary();
+                } else {
+                    userLibraryComicRef.set( {
+                        title: comic.title,
+                        seriesName: comic.series.name,
+                        thumbnailPath: comic.thumbnail.path,
+                        thumbnailExtension: comic.thumbnail.extension,
+                        issue: comic.issueNumber
+                    });
+                    addToLibrary();
                 }
-
-                function addToLibrary() {
-                    inLibrary = true;
-                    library.src = "assets/icons/library-select.svg";
-                }
-
-                function removeFromLibrary() {
-                    inLibrary = false;
-                    library.src = "assets/icons/library-noselect.svg"
-                }
-
-                library.addEventListener('click', () => {
-                    if(inLibrary) {
-                        userLibraryRef.remove();
-                        removeFromLibrary();
-                    } else {
-                        userLibraryRef.set( {
-                            title: comic.title,
-                            seriesName: comic.series.name,
-                            thumbnailPath: comic.thumbnail.path,
-                            thumbnailExtension: comic.thumbnail.extension,
-                            issue: comic.issueNumber
-                        });
-                        addToLibrary();
-                    }
-                })
             })
-
-
-
-
-
+        })
+        
+        resultsList.appendChild(html);
 
         // const userWishlistRef = wishlistByUserRef.child(userId);
         // const userWishlistComicRef = userWishlistRef.child(comic.title);
