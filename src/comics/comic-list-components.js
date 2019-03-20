@@ -40,9 +40,7 @@ export default function loadComicList(comics) {
         const userId = auth.currentUser.uid;
 
         const userLibraryRef = libraryByUserRef.child(userId);
-        console.log(comic);
         const userLibraryComicRef = userLibraryRef.child(comic.id);
-        console.log(userLibraryComicRef);
         userLibraryComicRef.once('value')
         .then(snapshot => {
             const value = snapshot.val();

@@ -7,10 +7,8 @@ loadHeader();
 
 auth.onAuthStateChanged(user => {
     const userId = user.uid;
-    console.log(userId);
     const userLibraryRef = libraryByUserRef.child(userId);
-    userLibraryRef.once('value')
-    .then(snapshot => {
+    userLibraryRef.on('value', snapshot => {
         const value = snapshot.val();
         const comics = objectToArray(value);
         loadComics(comics);
