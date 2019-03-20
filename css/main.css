@@ -31,6 +31,7 @@ ul {
 /* header and nav */
 
 #header-container {
+    background-color: lightblue;
     display: flex;
     padding: 30px;
     align-items: center;
@@ -38,7 +39,7 @@ ul {
 }
 
 header img {
-    width: 180px;
+    width: 240px;
 }
 
 nav {
@@ -46,6 +47,7 @@ nav {
     letter-spacing: .1em;
     text-transform: uppercase;
     font-size: 20px;
+    background-color: black;
     color: #ffffff;
 }
 
@@ -72,15 +74,16 @@ nav a {
 
 .drop-down-content {
     padding: 20px 0;
+    background-color: purple;
+}
+
+.nav-li:hover .drop-down-content {
+    display: block;
 }
 
 .drop-down-content li {
     padding: 0 0 20px 0;
     text-align: right;
-}
-
-.nav-li:hover .drop-down-content {
-    display: block;
 }
 
 #user-name-display, #log-out {
