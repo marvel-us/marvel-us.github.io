@@ -3,6 +3,8 @@ import loadComics from '../comics/comic-list-components.js';
 import loadHeader from '../shared/header.js';
 import objectToArray from '../object-to-array.js';
 
+const wishlist = document.getElementById('wishlist-icon');
+
 loadHeader();
 
 auth.onAuthStateChanged(user => {
@@ -14,3 +16,9 @@ auth.onAuthStateChanged(user => {
         loadComics(comics);
     });
 });
+
+// wishlist.addEventListener('click', () => {
+//     console.log('hi');
+// })
+
+console.log(wishlist);
