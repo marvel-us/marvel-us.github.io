@@ -31,9 +31,7 @@ ul {
 /* header and nav */
 
 #header-container {
-    background-color: pink;
     display: flex;
-    /* height: 110px; */
     padding: 30px;
     align-items: center;
     justify-content: space-between;
@@ -45,9 +43,15 @@ header img {
 
 nav {
     font-family: 'BentonSans', 'Gil Sans', sans-serif;
+    letter-spacing: .1em;
     text-transform: uppercase;
     font-size: 20px;
-    background-color: yellow;
+    color: #ffffff;
+}
+
+nav a {
+    text-decoration: none;
+    color: #ffffff;
 }
 
 .profile-header-ul {
@@ -61,17 +65,28 @@ nav {
 
 .drop-down-content {
     position: absolute;
-    right: 0;
+    right: 1px;
     top: 20px;
-    padding: 20px 0;
     display: none;
-    background-color: purple;
+}
+
+.drop-down-content {
+    padding: 20px 0;
+}
+
+.drop-down-content li {
+    padding: 0 0 20px 0;
+    text-align: right;
 }
 
 .nav-li:hover .drop-down-content {
     display: block;
 }
 
-#user-name-display {
+#user-name-display, #log-out {
     cursor: pointer;
+}
+
+nav a:hover, nav span:hover {
+    color: pink;
 }
