@@ -30,12 +30,20 @@ export default function loadComicList(comics) {
     while(resultsList.firstChild) {
         resultsList.firstChild.remove();
     }
+
     
     comics.forEach(comic => {
         const html = makeResultListTemplate(comic);
-
+        
         const library = html.getElementById('library-icon');
         const wishlist = html.getElementById('wishlist-icon');
+
+        if(window.location.pathname === '/library.html') {
+            wishlist.hidden = true;
+        }
+        if(window.location.pathname === '/wishlist.html') {
+            library.hidden = true;
+        }
         
         const userId = auth.currentUser.uid;
 
