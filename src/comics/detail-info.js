@@ -2,7 +2,7 @@ const comicImageContainer = document.getElementById('comic-image-container');
 
 export function makeDetailImageTemplate(comic) {
     let image = comic.images[0];
-    if(!image) {
+    if(image === 'undefined') {
         image = 'assets/backgrounds/hulk-bg.jpg';
     }
     const html = `
@@ -22,6 +22,7 @@ export function makeDetailInfoTemplate(comic) {
     const comicCreators = comic.creators.items;
     const description = comic.description;
     const series = comic.series.name;
+    const price = comic.prices[0].price;
     
     const iconContainer = document.getElementById('icon-container');
     const titleContainer = document.getElementById('title-container');
@@ -29,6 +30,9 @@ export function makeDetailInfoTemplate(comic) {
     const allCreators = document.getElementById('all-creators');
     const descriptionContainer = document.getElementById('description-container');
     const seriesContainer = document.getElementById('series-container');
+    const priceContainer = document.getElementById('price');
+
+    
 
     const h1 = document.createElement('h1');
     h1.textContent = title;
@@ -74,8 +78,11 @@ export function makeDetailInfoTemplate(comic) {
         descriptionContainer.hidden = true;
     }
 
-    const p = document.createElement('p');
-    p.textContent = series;
-    seriesContainer.appendChild(p);
+    const pSeries = document.createElement('p');
+    pSeries.textContent = series;
+    seriesContainer.appendChild(pSeries);
 
+    const pPrice = document.createElement('p');
+    pPrice.textContent = price;
+    priceContainer.appendChild(pPrice);
 }

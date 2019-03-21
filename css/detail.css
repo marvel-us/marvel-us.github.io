@@ -1,5 +1,5 @@
 body {
-    height: 100vh;
+    min-height: 100vh;
     background-image: url('../assets/backgrounds/spiderman-bg.jpg');
     background-position: center;
     background-repeat: no-repeat;
@@ -7,7 +7,6 @@ body {
 }
 
 main {
-    /* height: 100%; */
     display: grid;
     grid-template-columns: 40% 1fr;
     color: white;
@@ -39,7 +38,7 @@ h2 {
 }
 
 #comic-image img {
-    height: 400px;
+    height: 500px;
 }
 
 #back-to-search {
@@ -81,6 +80,12 @@ h2 {
 #description-container p {
     margin-right: 40px; 
 }
+
+#something-something {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
 
 footer {
     text-align: center;

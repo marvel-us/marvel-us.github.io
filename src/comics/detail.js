@@ -18,7 +18,6 @@ if(comicCodeType === 'upc') {
         .then(response => response.json())
         .then(results => {
             const comic = results.data.results[0];
-            console.log(results);
             makeDetailImageTemplate(comic);
             makeDetailInfoTemplate(comic);
             makeIconsWork(comic);
@@ -41,7 +40,6 @@ function makeIconsWork(comic) {
     const wishlist = document.getElementById('wishlist-icon');
 
     const userId = auth.currentUser.uid; 
-    console.log(userId);
     
     const userLibraryRef = libraryByUserRef.child(userId);
     const userLibraryComicRef = userLibraryRef.child(comic.id);
