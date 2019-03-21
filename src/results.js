@@ -48,7 +48,6 @@ function fetchSearchResults() {
                 .then(response => response.json())
                 .then(results => {
                     const comicList = results.data.results;
-                    console.log(comicList);
                     loadComicList(comicList);
                     const pagingInfo = {
                         page: searchOptions.page,

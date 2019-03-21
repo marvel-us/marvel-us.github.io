@@ -2,9 +2,17 @@ import { auth, wishlistByUserRef, libraryByUserRef } from '../firebase/firebase.
 import clearResultsList from './clear-results-list.js';
 
 export function makeResultListTemplate(comic) {
+    let image = null;
+
+    if(comic.thumbnail.path === 'http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available') {
+        image = 'assets/no-comic-image.jpg';
+    } else {
+        image = `${comic.thumbnail.path}.${comic.thumbnail.extension}`;
+    }
+
     const html = /*html*/ `
     <div id="result-card">
-        <div style="background-image: url(${comic.thumbnail.path}.${comic.thumbnail.extension})" id="result-card-image">
+        <div style="background-image: url(${image})" id="result-card-image">
             <div id="result-card-h2">
                 <h2>${comic.title}</h2>
                 <span id="comic-codes" hidden="true">${comic.upc} ${comic.id}</span>

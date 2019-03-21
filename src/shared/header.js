@@ -27,7 +27,7 @@ export function makeProfileTemplate(user) {
                 <ul class="profile-header-ul">
                     <li class="nav-li"><a href="/wishlist.html">Wishlist</a></li>
                     <li class="nav-li"><a href="/library.html">Library</a></li>
-                    <li class="nav-li"><a href="/user-profile.html"><span id="user-name-display">${user.displayName}</span></a></li>
+                    <li class="nav-li"><span id="user-name-display">${user.displayName}</span></li>
                     <li class="nav-line-break"></li>
                     <li class="nav-li" id="log-out-nav"><a href="#"><span id="log-out">Log Out</span></a></li>
                 </ul>
@@ -45,13 +45,11 @@ const headerContainer = document.getElementById('header-container');
 export default function loadHeader(options) {
     const headerHtml = makeHeaderTemplate();
     headerContainer.appendChild(headerHtml);
-    //const header = headerHtml.querySelector('header');
     if(options && options.skipAuth) {
         return;
     }
 
     auth.onAuthStateChanged(user => {
-
         if(user) {
             const userDom = makeProfileTemplate(user);
             const signOutButton = userDom.querySelector('#log-out');

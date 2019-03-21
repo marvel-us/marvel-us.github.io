@@ -2,8 +2,6 @@ const comicImageContainer = document.getElementById('comic-image-container');
 
 export function makeDetailImageTemplate(comic) {
     let image = comic.images[0];
-    console.log(image);
-    console.log(comic);
 
     if(!image) {
         image = comic.thumbnail;
