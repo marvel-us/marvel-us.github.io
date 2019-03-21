@@ -131,12 +131,32 @@ nav a {
     user-select: none;
 }
 
-#user-name-display, #log-out {
+#user-name-display {
+    cursor: default;
+}
+
+#log-out {
     cursor: pointer;
 }
 
-nav a:hover, nav span:hover {
+nav a:hover, #log-out:hover {
     color: #d3dfe2;
     transition: 0.2s all linear;
     text-decoration: none;
+}
+
+#page-title {
+    background: #2e2c25;
+    height: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#page-title h1 {
+    color: #ffffff;
+    font-size: 30px;
+    position: relative;
+    top: 2px;
+    text-transform: uppercase;
 }

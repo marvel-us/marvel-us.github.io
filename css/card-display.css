@@ -48,3 +48,13 @@
     position: relative;
     bottom: 1px;
 }
+
+.no-result {
+    height: calc(100vh - 260px);
+    position: relative;
+    top: 20px;
+    color: #b2b2b2;
+    font-weight: 700;
+    font-style: italic;
+    font-size: 1.5em;
+}
