@@ -1,4 +1,4 @@
-const comicImageContainer = document.getElementById('comic-image-container');
+const comicImageContainer = document.getElementById('comic-image');
 
 export function makeDetailImageTemplate(comic) {
     let image = comic.images[0];
@@ -6,14 +6,13 @@ export function makeDetailImageTemplate(comic) {
     if(!image) {
         image = comic.thumbnail;
     }
-    const html = `
-        <div id="comic-image">
-            <img src="${image.path}.${image.extension}" alt="comic image">
-        </div>
-    `;
-    const template = document.createElement('template');
-    template.innerHTML = html;
-    comicImageContainer.appendChild(template.content);
+
+    const img = document.createElement('img');
+    img.src = `${image.path}.${image.extension}`;
+    img.alt = 'comic image';
+
+    console.log('container: ', comicImageContainer);
+    comicImageContainer.appendChild(img);
 }
 
 export function makeDetailInfoTemplate(comic) {

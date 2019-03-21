@@ -42,7 +42,7 @@ test('make profile html with user', assert => {
                 <ul class="profile-header-ul">
                     <li class="nav-li"><a href="/wishlist.html">Wishlist</a></li>
                     <li class="nav-li"><a href="/library.html">Library</a></li>
-                    <li class="nav-li"><a href="/user-profile.html"><span id="user-name-display">Tom Hanks</span></a></li>
+                    <li class="nav-li"><span id="user-name-display">Tom Hanks</span></li>
                     <li class="nav-line-break"></li>
                     <li class="nav-li" id="log-out-nav"><a href="#"><span id="log-out">Log Out</span></a></li>
                 </ul>
