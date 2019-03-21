@@ -45,8 +45,7 @@ export default function loadComicList(comics) {
             library.hidden = true;
         }
 
-        const userId  = auth.currentUser.uid;
-    
+        const userId = auth.currentUser.uid; 
         
         const userLibraryRef = libraryByUserRef.child(userId);
         const userLibraryComicRef = userLibraryRef.child(comic.id);
@@ -62,12 +61,12 @@ export default function loadComicList(comics) {
                 
                 function addToLibrary() {
                     inLibrary = true;
-                    library.src = "assets/icons/library-select.svg";
+                    library.src = 'assets/icons/library-select.svg';
                 }
                 
                 function removeFromLibrary() {
                     inLibrary = false;
-                    library.src = "assets/icons/library-noselect.svg";
+                    library.src = 'assets/icons/library-noselect.svg';
                 }
                 
                 library.addEventListener('click', () => {
@@ -80,7 +79,10 @@ export default function loadComicList(comics) {
                             title: comic.title,
                             series: { name: comic.series.name },
                             thumbnail: { path: comic.thumbnail.path, extension: comic.thumbnail.extension },
-                            issue: comic.issueNumber
+                            issue: comic.issueNumber,
+                            images: { path: comic.images[0].path, extension: comic.images[0].extension },
+                            upc: comic.upc,
+                            prices: { price: comic.prices[0].price }
                         });
                         addToLibrary();
                     }
@@ -101,7 +103,7 @@ export default function loadComicList(comics) {
                 
                 function addToWishlist() {
                     inWishlist = true;
-                    wishlist.src = "assets/icons/wishlist-select.svg";
+                    wishlist.src = 'assets/icons/wishlist-select.svg';
                 }
                 
                 function removeFromWishlist() {
@@ -119,7 +121,10 @@ export default function loadComicList(comics) {
                             title: comic.title,
                             series: { name: comic.series.name },
                             thumbnail: { path: comic.thumbnail.path, extension: comic.thumbnail.extension },
-                            issue: comic.issueNumber
+                            issue: comic.issueNumber,
+                            images: { path: comic.images[0].path, extension: comic.images[0].extension },
+                            upc: comic.upc,
+                            prices: { price: comic.prices[0].price }
                         });
                         addToWishlist();
                     }
