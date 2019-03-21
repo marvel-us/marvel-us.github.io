@@ -1,9 +1,10 @@
 body {
-    background-image: url('../assets/backgrounds/spiderman-bg.jpg');
+    background-image: url('../assets/backgrounds/storm-bg-blue.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
+
 
 #content-container-all {
     height: 100vh;
@@ -67,8 +68,5 @@ body {
 }
 
 footer {
-    color: white;
-    font-size: 10px;
-    align-self: center;
-    padding: 0 0 10px 0;
+    color: #ffffff;
 }
