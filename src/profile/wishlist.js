@@ -8,12 +8,19 @@ loadHeader();
 auth.onAuthStateChanged(user => {
     const userId = user.uid;
     const userWishlistRef = wishlistByUserRef.child(userId);
+    
     userWishlistRef.on('value', snapshot => {
         const value = snapshot.val();
+        const dom = document.getElementById('results-list');
+        if(!value) {
+            const noResultsSpan = document.createElement('span');
+            noResultsSpan.classList.add('no-result');
+            noResultsSpan.textContent = 'No results found';
+            dom.appendChild(noResultsSpan);
+        }
         const comics = objectToArray(value);
         loadComics(comics);
 
-        const dom = document.getElementById('results-list');
         const comicImage = dom.querySelectorAll('#result-card-image');
         
         comicImage.forEach(comic => {

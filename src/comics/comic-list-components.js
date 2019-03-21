@@ -13,8 +13,8 @@ export function makeResultListTemplate(comic) {
         <div id="result-card-bottom">
           <span id="result-information">Issue: ${comic.issueNumber}<br>${comic.series.name}</span>
           <span id="result-user-control">
-            <img src="assets/icons/library-noselect.svg" id="library-icon" alt="library">  
-            <img src="assets/icons/wishlist-noselect.svg" id="wishlist-icon" alt="wishlist">
+            <img src="assets/icons/library-noselect.svg" id="library-icon" alt="Add to library" title="Add to library">  
+            <img src="assets/icons/wishlist-noselect.svg" id="wishlist-icon" alt="Add to wishlist" title="Add to wishlist">
           </span>
         </div>
     </div>

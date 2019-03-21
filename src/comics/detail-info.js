@@ -45,12 +45,14 @@ export function makeDetailInfoTemplate(comic) {
     imgLibraryIcon.src = 'assets/icons/library-noselect.svg';
     imgLibraryIcon.id = 'library-icon';
     imgLibraryIcon.alt = 'library';
+    imgLibraryIcon.title = 'Add to library';
     iconContainer.appendChild(imgLibraryIcon);
-
+    
     const imgWishlistIcon = document.createElement('img');
     imgWishlistIcon.src = 'assets/icons/wishlist-noselect.svg';
     imgWishlistIcon.id = 'wishlist-icon';
     imgWishlistIcon.alt = 'wishlist';
+    imgWishlistIcon.title = 'Add to wishlist';
     iconContainer.appendChild(imgWishlistIcon);
 
     for(let i = 0; i < comicCharacters.length; i++) {
