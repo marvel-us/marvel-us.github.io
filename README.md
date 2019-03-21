@@ -55,8 +55,4 @@ User Story
 BACK BUTTON FUNCTIONALITY
 ADD BUTTON W/ID INSTEAD OF LINK ON DETAIL.HTML, THEN
 ON DETAIL.JS:
-const backButton = document.getElementById('back-button');
-backButton.addEventListener('click', () => {
-    event.preventDefault();
-    window.history.back();
-});
+

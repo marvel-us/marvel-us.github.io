@@ -7,11 +7,16 @@ import './comics/search-components.js';
 import { readFromQuery } from './comics/hash-query-component.js';
 import { updateSearchTerm } from './comics/search-components.js';
 import updatePaging from './comics/paging-component.js';
+import { auth } from './firebase/firebase.js';
 
 loadHeader();
 
 if(window.location.hash) {
-    fetchSearchResults();
+    auth.onAuthStateChanged(user => {
+        if(user) {
+            fetchSearchResults();
+        }
+    });
 }
 
 window.addEventListener('hashchange', () => {
@@ -43,6 +48,7 @@ function fetchSearchResults() {
                 .then(response => response.json())
                 .then(results => {
                     const comicList = results.data.results;
+                    console.log(comicList);
                     loadComicList(comicList);
                     const pagingInfo = {
                         page: searchOptions.page,

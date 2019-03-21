@@ -11,6 +11,12 @@ const currentHashQuery = window.location.hash.slice(1);
 const splitQuery = currentHashQuery.split('=');
 const comicCodeType = splitQuery[0];
 const comicCode = splitQuery[1];
+const backButton = document.getElementById('back-button');
+
+backButton.addEventListener('click', () => {
+    event.preventDefault();
+    window.history.back();
+}); 
 
 if(comicCodeType === 'upc') {
     const upcUrl = makeComicUpcSearchUrl(comicCode);
