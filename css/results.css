@@ -6,22 +6,23 @@
 }
 
 #user-controls {
-    background: #f4f4f4;
+    background: #2e2c25;
+    color: #ffffff;
     /* border-bottom: 2px solid #d8d8d7; */
-    padding: 8px 30px 10px 30px;
+    padding: 10px 30px 12px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 #search-term {
-    width: 210px;
+    width: 208px;
     height: 30px;
     color: #7f7f7f;
     font-size: 16px;
     outline: none;
     padding: 0 7px;
-    border: 2px solid #2e2c25;
+    border: 2px solid #ffffff;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -30,14 +31,12 @@
 }
 
 #search-term:focus {
-    border-top: 2px solid #7f7f7f;
-    border-left: 2px solid #7f7f7f;
-    border-bottom: 2px solid #7f7f7f;
+    border: 2px solid #c4c4c4;
     transition: 0.2s all linear;
 }
 
 #search-button {
-    width: 30px;
+    width: 32px;
     background-image: url(../assets/icons/search.svg);
     background-position: center;
     background-repeat: no-repeat;
@@ -45,16 +44,18 @@
     right: 4px;
     height: 30px;
     font-size: 16px;
-    background-color: #2e2c25;
+    background-color: #ffffff;
     color: transparent;
-    border: 2px solid #2e2c25;
+    border: none;
+    border-left: 2px solid #2e2c25;
     outline: none;
     transition: 0.1s all linear;
 }
 
 #search-button:active {
-    background-color: #7f7f7f;
-    border: 2px solid #7f7f7f;
+    background-color: #c4c4c4;
+    border: none;
+    border-left: 2px solid #2e2c25;
     transition: 0.1s all linear;
 }
 
@@ -71,9 +72,9 @@
 }
 
 .results-buttons {
-    border: 2px solid #2e2c25;
-    color: #ffffff;
-    background-color: #2e2c25;
+    border: 2px solid #ffffff;
+    color: #2e2c25;
+    background-color: #ffffff;
     height: 30px;
     font-size: 14px;
     padding: 0 10px;
@@ -82,8 +83,8 @@
 }
 
 .results-buttons:active {
-    background-color: #7f7f7f;
-    border: 2px solid #7f7f7f;
+    background-color: #c4c4c4;
+    border: 2px solid #c4c4c4;
     transition: 0.1s all linear;
 }
 
@@ -96,3 +97,10 @@
     position: relative;
     bottom: 1px;
 }
+
+/* #content-container-results {
+    display: flex;
+    flex-direction: column;
+    /* min-height: calc(100vh - 185px); */
+    justify-content: space-between;
+} */
