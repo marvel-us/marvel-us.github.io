@@ -6,20 +6,59 @@
     <script src="https://www.gstatic.com/firebasejs/5.8.6/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.8.6/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.8.6/firebase-database.js"></script>
-    <!-- <link rel="stylesheet" type="text/css" href="./css/detail.css"> -->
+    <link rel="stylesheet" type="text/css" href="./css/main.css">
+    <link rel="stylesheet" type="text/css" href="./css/detail.css">    
     <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i" rel="stylesheet">
 
     <title>Detail</title>
 </head>
 <body>
-
-    <header>
-        <h1></h1>
-    </header>
+    <section id="header-container"></section>
 
     <main>
 
-        <section>
+        <section id="comic-image-container">
+            <div id="comic-image">
+                <img src="http://i.annihil.us/u/prod/marvel/i/mg/2/60/5bd1dec961feb.jpg" alt="comic image">
+            </div>
+        </section>
+
+        <section id="comic-info-container">
+
+            <div>
+                <a href="./results.html">Back to Search</a>
+            </div>
+
+            <div id="title-container"></div>
+
+            <div id="characters-container">
+                <h2>Characters in this Comic</h2>
+                <ul id="all-characters"></ul>
+            </div>
+
+            <div id="creators-container">
+                <h2>creators of this Comic</h2>
+                <ul id="all-creators"></ul>
+            </div>
+
+            <div id="description-container">
+                <h2>Description</h2>
+                <p id="description"></p>
+            </div>
+            
+            <div id="series-container">
+                <h2>Series</h2>
+                <p>Universe X (2000 - 2001)</p>
+            </div>
+
+            <div id="stories-container">
+                <h2>Stories</h2>
+                <ul id="all-stories">
+                    <li class="story">Universe X (2000) #8</li>
+                    <li class="story">Interior #25652</li>
+                </ul>
+            </div>
+
         </section>
 
     </main>

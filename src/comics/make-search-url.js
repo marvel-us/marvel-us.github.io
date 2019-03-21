@@ -20,3 +20,19 @@ export function makeComicSearchUrl(characterId, searchOptions) {
 
     return url.toString();
 }
+
+export function makeComicUpcSearchUrl(characterUpc) {
+    const url = new URL(SEARCH_COMICS_URL);
+    url.searchParams.set('upc', characterUpc);
+    url.searchParams.set('apikey', API_KEY);
+
+    return url.toString();
+}
+
+export function makeComicIdSearchUrl(characterId) {
+    const url = new URL(SEARCH_COMICS_URL);
+    url.searchParams.set('digitalId', characterId);
+    url.searchParams.set('apikey', API_KEY);
+
+    return url.toString();
+}

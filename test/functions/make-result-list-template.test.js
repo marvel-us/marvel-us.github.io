@@ -10,7 +10,9 @@ test('result list for index html template', assert => {
         title: 'Ant-Man (2003) #2',
         thumbnail: { path: 'http://i.annihil.us/u/prod/marvel/i/mg/f/20/4bc69f33cafc0', extension: 'jpg' },
         issueNumber: 2,
-        series: { resourceURI: 'http://gateway.marvel.com/v1/public/series/551', name: 'Ant-Man (2003 - 2004)' }
+        series: { resourceURI: 'http://gateway.marvel.com/v1/public/series/551', name: 'Ant-Man (2003 - 2004)' },
+        id: '5678',
+        upc: '1234'
     };
 
     const expected = /*html*/ `
@@ -18,6 +20,7 @@ test('result list for index html template', assert => {
         <div style="background-image: url(http://i.annihil.us/u/prod/marvel/i/mg/f/20/4bc69f33cafc0.jpg)" id="result-card-image">
             <div id="result-card-h2">
                 <h2>Ant-Man (2003) #2</h2>
+                <span id="comic-codes" hidden="true">1234 5678</span>
             </div>
         </div>
 
