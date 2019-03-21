@@ -1,6 +1,4 @@
-// import { auth } from './firebase.js';
-
-import loadComicList from './comics/comic-list-components.js';
+import loadComicList, { loadComicListWithNoUser } from './comics/comic-list-components.js';
 import loadHeader from './shared/header.js';
 import { makeCharacterSearchUrl, makeComicSearchUrl } from './comics/make-search-url.js';
 import './comics/search-components.js';
@@ -15,7 +13,7 @@ if(window.location.hash) {
     auth.onAuthStateChanged(user => {
         if(user) {
             fetchSearchResults();
-        }
+        } 
     });
 }
 
@@ -48,7 +46,11 @@ function fetchSearchResults() {
                 .then(response => response.json())
                 .then(results => {
                     const comicList = results.data.results;
-                    loadComicList(comicList);
+                    if(!auth.currentUser) {
+                        loadComicListWithNoUser(comicList);
+                    } else {
+                        loadComicList(comicList);
+                    }
                     const pagingInfo = {
                         page: searchOptions.page,
                         totalPages: Math.ceil(results.data.total / 20)

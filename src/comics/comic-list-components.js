@@ -135,9 +135,17 @@ export default function loadComicList(comics) {
                     }
                 });
             });
-
-        
+            
         resultsList.appendChild(html);
 
+    });
+}
+
+export function loadComicListWithNoUser(comics) {
+    clearResultsList();
+
+    comics.forEach(comic => {
+        const html = makeResultListTemplate(comic);
+        resultsList.appendChild(html);
     });
 }
