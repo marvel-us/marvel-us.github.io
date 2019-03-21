@@ -2,8 +2,11 @@ const comicImageContainer = document.getElementById('comic-image-container');
 
 export function makeDetailImageTemplate(comic) {
     let image = comic.images[0];
-    if(image === 'undefined') {
-        image = 'assets/backgrounds/hulk-bg.jpg';
+    console.log(image);
+    console.log(comic);
+
+    if(!image) {
+        image = comic.thumbnail;
     }
     const html = `
         <div id="comic-image">

@@ -41,7 +41,7 @@ export default function loadComicList(comics) {
         if(window.location.pathname === '/wishlist.html') {
             library.hidden = true;
         }
-        
+
         const userId = auth.currentUser.uid; 
         
         const userLibraryRef = libraryByUserRef.child(userId);
@@ -121,7 +121,7 @@ export default function loadComicList(comics) {
                             issue: comic.issueNumber,
                             images: { path: comic.images[0].path, extension: comic.images[0].extension },
                             upc: comic.upc,
-                            prices: { price: comic.prices[0].price }
+                            prices: { price: comic.prices[0].price },     
                         });
                         addToWishlist();
                     }
