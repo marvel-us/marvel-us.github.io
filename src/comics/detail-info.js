@@ -1,7 +1,10 @@
 const comicImageContainer = document.getElementById('comic-image-container');
 
 export function makeDetailImageTemplate(comic) {
-    const image = comic.images[0];
+    let image = comic.images[0];
+    if(!image) {
+        image = 'assets/backgrounds/hulk-bg.jpg';
+    }
     const html = `
         <div id="comic-image">
             <img src="${image.path}.${image.extension}" alt="comic image">
@@ -30,9 +33,6 @@ export function makeDetailInfoTemplate(comic) {
     const h1 = document.createElement('h1');
     h1.textContent = title;
     titleContainer.appendChild(h1);
-
-    // <img src="assets/icons/library-noselect.svg" id="library-icon" alt="library">  
-    // <img src="assets/icons/wishlist-noselect.svg" id="wishlist-icon" alt="wishlist"></img>
 
     const imgLibraryIcon = document.createElement('img');
     imgLibraryIcon.src = 'assets/icons/library-noselect.svg';

@@ -80,7 +80,9 @@ export default function loadComicList(comics) {
                             title: comic.title,
                             series: { name: comic.series.name },
                             thumbnail: { path: comic.thumbnail.path, extension: comic.thumbnail.extension },
-                            issue: comic.issueNumber
+                            issue: comic.issueNumber,
+                            images: { path: comic.images[0].path, extension: comic.images[0].extension },
+                            upc: comic.upc
                         });
                         addToLibrary();
                     }
@@ -119,7 +121,9 @@ export default function loadComicList(comics) {
                             title: comic.title,
                             series: { name: comic.series.name },
                             thumbnail: { path: comic.thumbnail.path, extension: comic.thumbnail.extension },
-                            issue: comic.issueNumber
+                            issue: comic.issueNumber,
+                            images: { path: comic.images[0].path, extension: comic.images[0].extension },
+                            upc: comic.upc
                         });
                         addToWishlist();
                     }
