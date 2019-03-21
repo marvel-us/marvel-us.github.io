@@ -1,5 +1,81 @@
-main {
+body {
     height: 100vh;
+    background-image: url('../assets/backgrounds/spiderman-bg.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+main {
+    /* height: 100%; */
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 40% 1fr;
+    color: white;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+h1 {
+    letter-spacing: 3px;
+}
+
+h2 {
+    letter-spacing: 3px;
+}
+
+#comic-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#comic-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#comic-image img {
+    height: 400px;
+}
+
+#back-to-search {
+    display: flex;
+    justify-content: flex-start;
+}
+
+#title-container {
+    display: flex;
+    align-items: center;
+}
+
+#comic-info-container {
+    display: grid;
+    grid-template-rows: 25px 45px ;
+}
+
+#people {
+    grid-row-start: 3;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#all-characters {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+#description-container p {
+    margin-right: 40px; 
+}
+
+footer {
+    text-align: center;
+    color: white;
+    font-size: 10px;
+    padding: 0 0 10px 0;
 }

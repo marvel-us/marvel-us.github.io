@@ -1,5 +1,6 @@
 import loadHeader from '../shared/header.js';
 import { makeComicUpcSearchUrl, makeComicIdSearchUrl } from './make-search-url.js';
+import { makeDetailImageTemplate, makeDetailInfoTemplate } from './detail-info.js';
 
 loadHeader();
 
@@ -14,16 +15,18 @@ if(comicCodeType === 'upc') {
     fetch(upcUrl)
         .then(response => response.json())
         .then(results => {
-            console.log(results);
-            return results;
+            const comic = results.data.results[0];
+            makeDetailImageTemplate(comic);
+            makeDetailInfoTemplate(comic);
         });
-    }
-    else {
-        const idUrl = makeComicIdSearchUrl(comicCode);
-        fetch(idUrl)
+}
+else {
+    const idUrl = makeComicIdSearchUrl(comicCode);
+    fetch(idUrl)
         .then(response => response.json())
         .then(results => {
-            console.log(results);
-            return results;
+            const comic = results.data.results[0];
+            makeDetailImageTemplate(comic);
+            makeDetailInfoTemplate(comic);
         });
 }

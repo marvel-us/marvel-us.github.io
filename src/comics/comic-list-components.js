@@ -46,11 +46,7 @@ export default function loadComicList(comics) {
             library.hidden = true;
         }
 
-        let userId = null;
-
-        userId ? auth.currentUser.uid : () => {
-            resultsList.appendChild(html); 
-        };
+        const userId = auth.currentUser.uid; 
         
         const userLibraryRef = libraryByUserRef.child(userId);
         const userLibraryComicRef = userLibraryRef.child(comic.id);
@@ -66,12 +62,12 @@ export default function loadComicList(comics) {
                 
                 function addToLibrary() {
                     inLibrary = true;
-                    library.src = "assets/icons/library-select.svg";
+                    library.src = 'assets/icons/library-select.svg';
                 }
                 
                 function removeFromLibrary() {
                     inLibrary = false;
-                    library.src = "assets/icons/library-noselect.svg";
+                    library.src = 'assets/icons/library-noselect.svg';
                 }
                 
                 library.addEventListener('click', () => {
@@ -105,7 +101,7 @@ export default function loadComicList(comics) {
                 
                 function addToWishlist() {
                     inWishlist = true;
-                    wishlist.src = "assets/icons/wishlist-select.svg";
+                    wishlist.src = 'assets/icons/wishlist-select.svg';
                 }
                 
                 function removeFromWishlist() {

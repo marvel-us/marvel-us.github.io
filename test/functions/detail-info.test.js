@@ -2,19 +2,7 @@ const test = QUnit.test;
 
 QUnit.module('detail page');
 
-function makeDetailImageTemplate(comic) {
-    const html = `
-    <section id="comic-image-container">
-        <div id="comic-image">
-            <img src="${comic.images[0].path}.${comic.images[0].extension}" alt="comic image">
-        </div>
-    </section>
-    `;
-
-    const template = document.createElement('template');
-    template.innerHTML = html;
-    return template.content;
-}
+import { makeDetailImageTemplate } from '../../src/detail-info.js';
 
 test('html for detail image', assert => {
     // arrange
@@ -36,74 +24,6 @@ test('html for detail image', assert => {
     // assert
     assert.htmlEqual(results, expected);
 });
-
-function makeDetailInfoTemplate(comic) {
-    
-    const comicCreators = comic.creators.items;
-
-    const html = `
-    <section id="comic-info-container">
-
-        <div>
-            <a href="./results.html">Back to Search</a>
-        </div>
-
-        <div>
-            <h1>${comic.title}</h1> 
-        </div>
-
-        <div id="characters-container">
-            <h2>Characters in this Comic</h2>
-            <ul id="all-characters">
-                <li class="character">Aaron Stack</li>
-                <li class="character">Black Panther</li>
-                <li class="character">Captain Marvel</li>
-                <li class="character">Daredevil</li>
-                <li class="character">Mephisto</li>
-                <li class="character">Storm</li>
-                <li class="character">Sue Storm</li>
-                <li class="character">Supreme Intelligence</li>
-                <li class="character">Thing</li>
-            </ul>
-        </div>
-
-        <div id="creators-container">
-            <h2>Creators of this Comic</h2>
-            <ul id="all-creators"></ul>
-        </div>
-
-        <div id="description-container">
-            <h2>Description</h2>
-            <p id="description">"${comic.description}"</p>
-        </div>
-        
-        <div id="series-container">
-            <h2>Series</h2>
-            <p>${comic.series.name}</p>
-        </div>
-
-    </section>
-    `;
-
-    const template = document.createElement('template');
-    template.innerHTML = html;
-
-    const allCreators = document.getElementById('all-creators');
-    console.log(allCreators);
-
-    for(let i = 0; i < comicCreators.length; i++) {
-        const creator = {
-            name: comicCreators[i].name,
-            role: comicCreators[i].role
-        };
-        const li = document.createElement('li');
-        li.textContent = `Name: ${creator.name}  Role: ${creator.role}`;
-        console.log(li);
-        allCreators.appendChild(li);
-    }
-
-    return template.content;
-}
 
 test('html for detail info', assert => {
     // arrange
