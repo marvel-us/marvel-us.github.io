@@ -10,11 +10,15 @@ import { auth } from './firebase/firebase.js';
 loadHeader();
 
 if(window.location.hash) {
-    auth.onAuthStateChanged(user => {
-        if(user) {
-            fetchSearchResults();
-        } 
-    });
+    if(auth.currentUser) {
+        auth.onAuthStateChanged(user => {
+            if(user) {
+                fetchSearchResults();
+            }
+        });
+    } else {
+        fetchSearchResults();
+    }
 }
 
 window.addEventListener('hashchange', () => {
