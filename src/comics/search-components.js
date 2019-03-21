@@ -1,14 +1,13 @@
 import { writeSearchToQuery } from './hash-query-component.js';
+import clearResultsList from './clear-results-list.js';
 
 const searchForm = document.getElementById('search-form');
-const resultsList = document.getElementById('results-list');
 
 searchForm.addEventListener('submit', event => {
     event.preventDefault();
 
-    while(resultsList.firstChild) {
-        resultsList.firstChild.remove();
-    }
+    clearResultsList();
+
     const formDaddy = new FormData(searchForm);
     const existingQuery = window.location.hash.slice(1);
     const keyword = formDaddy.get('search-term');

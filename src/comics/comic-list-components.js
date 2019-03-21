@@ -1,5 +1,5 @@
 import { auth, wishlistByUserRef, libraryByUserRef } from '../firebase/firebase.js';
-
+import clearResultsList from './clear-results-list.js';
 
 export function makeResultListTemplate(comic) {
     const html = /*html*/ `
@@ -27,9 +27,7 @@ export function makeResultListTemplate(comic) {
 const resultsList = document.getElementById('results-list');
 
 export default function loadComicList(comics) {
-    while(resultsList.firstChild) {
-        resultsList.firstChild.remove();
-    }
+    clearResultsList();
 
     comics.forEach(comic => {
         const html = makeResultListTemplate(comic);
@@ -43,7 +41,6 @@ export default function loadComicList(comics) {
         if(window.location.pathname === '/wishlist.html') {
             library.hidden = true;
         }
-
         
         const userId = auth.currentUser.uid; 
         

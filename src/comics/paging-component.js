@@ -1,4 +1,5 @@
 import { writePageToQuery } from './hash-query-component.js';
+import clearResultsList from './clear-results-list.js';
 
 const previousButton = document.getElementById('previous-button');
 const nextButton = document.getElementById('next-button');
@@ -16,6 +17,8 @@ export default function updatePaging(pagingInfo) {
 }
 
 previousButton.addEventListener('click', () => {
+    clearResultsList();
+    
     currentPageNum--;
     const existingQuery = window.location.hash.slice(1);
     const newQuery = writePageToQuery(existingQuery, currentPageNum);
@@ -23,6 +26,8 @@ previousButton.addEventListener('click', () => {
 });
 
 nextButton.addEventListener('click', () => {
+    clearResultsList();
+
     currentPageNum++;
     const existingQuery = window.location.hash.slice(1);
     const newQuery = writePageToQuery(existingQuery, currentPageNum);
