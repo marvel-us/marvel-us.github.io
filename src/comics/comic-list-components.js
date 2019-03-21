@@ -46,11 +46,8 @@ export default function loadComicList(comics) {
             library.hidden = true;
         }
 
-        let userId = null;
-
-        userId ? auth.currentUser.uid : () => {
-            resultsList.appendChild(html); 
-        };
+        const userId  = auth.currentUser.uid;
+    
         
         const userLibraryRef = libraryByUserRef.child(userId);
         const userLibraryComicRef = userLibraryRef.child(comic.id);

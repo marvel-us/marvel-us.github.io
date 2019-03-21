@@ -1,4 +1,16 @@
-# marvel-us.github.io
+# MarvelUS
+
+## marvel-us.github.io
+Search the entire Marvel comic library by character name. Track your collection by adding comics to your user library, and add comics you want to your wishlist. 
+
+### Acknowledgements
+Data provided by Marvel. © 2014 Marvel
+
+### Authors
+Payton Lower
+Megan Marshall
+Jared Myhrberg
+Heather Parks
 
 Heather API Key: 8fc44adf47a9e16e282456f1eaed601b
 
