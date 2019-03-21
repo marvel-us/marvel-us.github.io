@@ -1,4 +1,6 @@
-import loadComicList, { loadComicListWithNoUser } from './comics/comic-list-components.js';
+// import { auth } from './firebase.js';
+
+import loadComicList from './comics/comic-list-components.js';
 import loadHeader from './shared/header.js';
 import { makeCharacterSearchUrl, makeComicSearchUrl } from './comics/make-search-url.js';
 import './comics/search-components.js';
@@ -10,15 +12,11 @@ import { auth } from './firebase/firebase.js';
 loadHeader();
 
 if(window.location.hash) {
-    if(auth.currentUser) {
-        auth.onAuthStateChanged(user => {
-            if(user) {
-                fetchSearchResults();
-            }
-        });
-    } else {
-        fetchSearchResults();
-    }
+    auth.onAuthStateChanged(user => {
+        if(user) {
+            fetchSearchResults();
+        }
+    });
 }
 
 window.addEventListener('hashchange', () => {
@@ -50,11 +48,7 @@ function fetchSearchResults() {
                 .then(response => response.json())
                 .then(results => {
                     const comicList = results.data.results;
-                    if(!auth.currentUser) {
-                        loadComicListWithNoUser(comicList);
-                    } else {
-                        loadComicList(comicList);
-                    }
+                    loadComicList(comicList);
                     const pagingInfo = {
                         page: searchOptions.page,
                         totalPages: Math.ceil(results.data.total / 20)

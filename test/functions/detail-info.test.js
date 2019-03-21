@@ -2,7 +2,7 @@ const test = QUnit.test;
 
 QUnit.module('detail page');
 
-import { makeDetailImageTemplate } from '../../src/comics/detail-info.js';
+import { makeDetailImageTemplate } from '../../src/detail-info.js';
 
 test('html for detail image', assert => {
     // arrange
