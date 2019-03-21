@@ -97,10 +97,3 @@
     position: relative;
     bottom: 1px;
 }
-
-/* #content-container-results {
-    display: flex;
-    flex-direction: column;
-    /* min-height: calc(100vh - 185px); */
-    justify-content: space-between;
-} */
