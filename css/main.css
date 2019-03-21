@@ -25,14 +25,17 @@ body {
 
 h1 {
     font-family: 'BentonSans', 'Gil Sans', sans-serif;
+    letter-spacing: .1em;
 }
 
 h2 {
     font-family: 'BentonSans', 'Gil Sans', sans-serif;
+    letter-spacing: .1em;
 }
 
 h3 {
     font-family: 'BentonSans', 'Gil Sans', sans-serif;
+    letter-spacing: .1em;
 }
 
 ul {
@@ -41,6 +44,15 @@ ul {
 
 #library-icon, #wishlist-icon {
     cursor: pointer;
+    height: 24px;
+    margin-left: 5px;
+}
+
+footer {
+    position: relative;
+    font-size: 10px;
+    text-align: center;
+    padding: 0 0 20px 0;
 }
 
 /* header and nav */
@@ -97,6 +109,6 @@ nav a {
 }
 
 nav a:hover, nav span:hover {
-    color: #d8d8d7;
+    color: #d3dfe2;
     transition: 0.2s all linear;
 }

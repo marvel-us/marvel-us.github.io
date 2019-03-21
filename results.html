@@ -16,15 +16,17 @@
 <body>
     <section id="header-container"></section>
 
-    <form id="search-form">
-        <input type="text" placeholder="" name="search-term" id="search-term">
-        <button id="search-button">Search</button>
-    </form>
-
-    <section>
-        <button id="previous-button">&lt; Previous</button>
-        <span id="current-page">1</span> of <span id="total-pages">1</span>
-        <button id="next-button">Next &gt;</button>
+    <section id="user-controls">
+        <form id="search-form">
+            <input type="text" placeholder="" name="search-term" id="search-term">
+            <button id="search-button">a</button>
+        </form>
+    
+        <section id="pagination">
+            <button id="previous-button" class="results-buttons"><span id="arrow">&lt;</span> Prev</button>
+            <span id="current-page">1</span> of <span id="total-pages">1</span>
+            <button id="next-button" class="results-buttons">Next <span id="arrow">&gt;</span></button>
+        </section>
     </section>
     
     <section id="results-list"></section>

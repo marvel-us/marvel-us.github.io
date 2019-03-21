@@ -8,25 +8,24 @@
     <script src="https://www.gstatic.com/firebasejs/5.8.6/firebase-database.js"></script>
     <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
     <link rel="stylesheet" type="text/css" href="./css/main.css">
+    <link rel="stylesheet" type="text/css" href="./css/auth.css">
    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
    <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i" rel="stylesheet">
     <title>Auth Page</title>
 </head>
 <body>
+    <section id="content-container-all">
 
-    <header>
-        <h1></h1>
-    </header>
+        <img src="assets/marvel-us-logo-white.svg" alt="Marvel US" id="auth-logo">
+        
+        <!-- <h1 id="sign-in-prompt">Personalize your experience</h1> -->
 
-    <main>
+            <div id="sign-in-container">
+                <div id="firebaseui-auth-container"></div>
+                <a href="index.html">Continue as Guest</a>
+            </div>
 
-        <div id="sign-in-container">
-            <p id="sign-in-prompt">Sign in prompt</p>
-            <div id="firebaseui-auth-container"></div>
-            <a href="index.html">Continue as guest</a>
-        </div>
-
-    </main>
+    </section>
 <script type="module" src="./src/firebase/auth.js"></script>
 </body>
 </html>
