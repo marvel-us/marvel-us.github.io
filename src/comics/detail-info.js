@@ -20,6 +20,7 @@ export function makeDetailInfoTemplate(comic) {
     const description = comic.description;
     const series = comic.series.name;
     
+    const iconContainer = document.getElementById('icon-container');
     const titleContainer = document.getElementById('title-container');
     const allCharacters = document.getElementById('all-characters');
     const allCreators = document.getElementById('all-creators');
@@ -29,6 +30,21 @@ export function makeDetailInfoTemplate(comic) {
     const h1 = document.createElement('h1');
     h1.textContent = title;
     titleContainer.appendChild(h1);
+
+    // <img src="assets/icons/library-noselect.svg" id="library-icon" alt="library">  
+    // <img src="assets/icons/wishlist-noselect.svg" id="wishlist-icon" alt="wishlist"></img>
+
+    const imgLibraryIcon = document.createElement('img');
+    imgLibraryIcon.src = 'assets/icons/library-noselect.svg';
+    imgLibraryIcon.id = 'library-icon';
+    imgLibraryIcon.alt = 'library';
+    iconContainer.appendChild(imgLibraryIcon);
+
+    const imgWishlistIcon = document.createElement('img');
+    imgWishlistIcon.src = 'assets/icons/wishlist-noselect.svg';
+    imgWishlistIcon.id = 'wishlist-icon';
+    imgWishlistIcon.alt = 'wishlist';
+    iconContainer.appendChild(imgWishlistIcon);
 
     for(let i = 0; i < comicCharacters.length; i++) {
         const character = {
