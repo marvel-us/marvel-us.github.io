@@ -20,3 +20,17 @@ export function readFromQuery(existingUrl) {
     };
     return searchOptions;
 }
+
+export function writeUpcSearch(existingQuery, upcCode) {
+    existingQuery = '';
+    const searchParams = new URLSearchParams(existingQuery);
+    searchParams.set('upc', upcCode);
+    return searchParams.toString();
+}
+
+export function writeIdSearch(existingQuery, upcCode) {
+    existingQuery = '';
+    const searchParams = new URLSearchParams(existingQuery);
+    searchParams.set('id', upcCode);
+    return searchParams.toString(); 
+}

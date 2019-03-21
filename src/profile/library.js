@@ -20,5 +20,3 @@ auth.onAuthStateChanged(user => {
 // wishlist.addEventListener('click', () => {
 //     console.log('hi');
 // })
-
-console.log(wishlist);

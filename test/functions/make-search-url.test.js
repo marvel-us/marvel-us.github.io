@@ -2,7 +2,7 @@ const test = QUnit.test;
 
 QUnit.module('search');
 
-import { makeCharacterSearchUrl, makeComicSearchUrl } from '../../src/comics/make-search-url.js';
+import { makeCharacterSearchUrl, makeComicSearchUrl, makeComicIdSearchUrl, makeComicUpcSearchUrl } from '../../src/comics/make-search-url.js';
 
 test('make character search url', assert => {
     const searchOptions = {
@@ -43,4 +43,24 @@ test('make comic search url, page 3', assert => {
     const result = makeComicSearchUrl(characterId, searchOptions);
 
     assert.equal(result, expected);
+});
+
+test('make comic upc search', assert => {
+    // arrange
+    const characterUpc = '75960608855301111';
+    const expected = 'https://gateway.marvel.com/v1/public/comics?upc=75960608855301111&apikey=698ecfea67de32ae8e6a3b78e74af2b3';
+    // act
+    const results = makeComicUpcSearchUrl(characterUpc);
+    // assert
+    assert.equal(results, expected);
+});
+
+test('make comic id search', assert => {
+    // arrange
+    const characterId = '22253';
+    const expected = 'https://gateway.marvel.com/v1/public/comics?digitalId=22253&apikey=698ecfea67de32ae8e6a3b78e74af2b3';
+    // act
+    const results = makeComicIdSearchUrl(characterId);
+    // assert
+    assert.equal(results, expected);
 });

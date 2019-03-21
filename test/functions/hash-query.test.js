@@ -1,4 +1,4 @@
-import { writeSearchToQuery, writePageToQuery, readFromQuery } from '../../src/comics/hash-query-component.js';
+import { writeSearchToQuery, writePageToQuery, readFromQuery, writeIdSearch, writeUpcSearch } from '../../src/comics/hash-query-component.js';
 
 const test = QUnit.test;
 
@@ -48,4 +48,24 @@ test('read options from query', assert => {
     const result = readFromQuery(existingUrl);
 
     assert.deepEqual(result, expected);
+});
+
+test('write hash for upc search', assert => {
+    const existingQuery = 'name=hulk&page=1';
+    const upcCode = '75960608855301111';
+    const expected = 'upc=75960608855301111';
+
+    const result = writeUpcSearch(existingQuery, upcCode);
+
+    assert.equal(result, expected);
+});
+
+test('write hash for id search', assert => {
+    const existingQuery = 'name=hulk&page=1';
+    const upcCode = '22253';
+    const expected = 'id=22253';
+
+    const result = writeIdSearch(existingQuery, upcCode);
+
+    assert.equal(result, expected);
 });
