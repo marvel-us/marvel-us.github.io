@@ -11,7 +11,6 @@ export function makeDetailImageTemplate(comic) {
     img.src = `${image.path}.${image.extension}`;
     img.alt = 'comic image';
 
-    console.log('container: ', comicImageContainer);
     comicImageContainer.appendChild(img);
 }
 

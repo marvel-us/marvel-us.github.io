@@ -10,18 +10,20 @@ import { auth } from './firebase/firebase.js';
 loadHeader();
 
 if(window.location.hash) {
-    if(auth.currentUser) {
-        auth.onAuthStateChanged(user => {
-            if(user) {
-                fetchSearchResults();
-            }
-        });
-    } else {
-        fetchSearchResults();
-    }
-}
+    auth.onAuthStateChanged(user => {
+        if(user) {
+            console.log('in if');
+            fetchSearchResults();
+        } else {
+            console.log('in else', auth.currentUser);
+            fetchSearchResults();
+        }
+    });
+} 
+
 
 window.addEventListener('hashchange', () => {
+    console.log('hash change');
     fetchSearchResults();
 });
 
@@ -50,11 +52,24 @@ function fetchSearchResults() {
                 .then(response => response.json())
                 .then(results => {
                     const comicList = results.data.results;
+                    console.log(auth.currentUser);
+
+                    // auth.onAuthStateChanged(user => {
+                    //     if(user) {
+                    //         loadComicList(comicList);
+                    //     } else {
+                    //         loadComicListWithNoUser(comicList);
+                    //     }
+                    // });
+
+
                     if(!auth.currentUser) {
+                        console.log('farts');
                         loadComicListWithNoUser(comicList);
                     } else {
                         loadComicList(comicList);
                     }
+
                     const pagingInfo = {
                         page: searchOptions.page,
                         totalPages: Math.ceil(results.data.total / 20)
