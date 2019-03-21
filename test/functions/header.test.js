@@ -7,7 +7,7 @@ test('static header html?', assert => {
     // arrange
     const expected = `
     <header>
-        <a href="index.html"><img src="./assets/marvel-us-logo-color.svg" alt="MarvelUS"></a>
+        <a href="index.html"><img src="./assets/marvel-us-logo-white.svg" alt="MarvelUS"></a>
     </header>
     `;
     // act
@@ -37,19 +37,17 @@ test('make profile html with user', assert => {
 
     // arrange
     const expected = `
-    <nav>
-        <div id="profile-header">
-            <ul>
-                <li><a href="./wishlist.html">Wishlist</a></li>
-                <li><a href="./library.html">Library</a></li>
-                <li><span id="user-name-display">Tom Hanks</span></li>
-                <ul id="drop-down">
-                    <li><a href="./user-profile.html">User Profile</a></li>
-                    <li><span id="log-out">Log Out</span></li>
+        <nav>
+            <div id="profile-header">
+                <ul class="profile-header-ul">
+                    <li class="nav-li"><a href="/wishlist.html">Wishlist</a></li>
+                    <li class="nav-li"><a href="/library.html">Library</a></li>
+                    <li class="nav-li"><a href="/user-profile.html"><span id="user-name-display">Tom Hanks</span></a></li>
+                    <li class="nav-line-break"></li>
+                    <li class="nav-li" id="log-out-nav"><a href="#"><span id="log-out">Log Out</span></a></li>
                 </ul>
-            </ul>
-        </div>
-    </nav>
+            </div>
+        </nav>
     `;
     // act
     const results = makeProfileTemplate(user);

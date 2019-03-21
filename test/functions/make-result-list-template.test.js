@@ -25,7 +25,7 @@ test('result list for index html template', assert => {
         </div>
 
         <div id="result-card-bottom">
-            <span id="result-information">Issue: 2 | Ant-Man (2003 - 2004)</span>
+            <span id="result-information">Issue: 2<br>Ant-Man (2003 - 2004)</span>
             <span id="result-user-control">
                 <img src="assets/icons/library-noselect.svg" id="library-icon" alt="library">  
                 <img src="assets/icons/wishlist-noselect.svg" id="wishlist-icon" alt="wishlist">

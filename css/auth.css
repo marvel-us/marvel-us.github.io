@@ -1,0 +1,55 @@
+body {
+    background-image: url('../assets/backgrounds/spiderman-bg.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+}
+
+#content-container-all {
+    height: calc(100vh - 50px);
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    justify-content: flex-start;
+    padding: 50px 0 0 50px;
+    position: relative;
+    animation: fade 1s;
+
+    /* background: pink; */
+}
+
+#auth-logo {
+    width: 600px;
+    padding-bottom: 50px; 
+}
+
+#sign-in-container {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 50px;
+    flex-direction: column;
+    /* background: pink; */
+}
+
+#sign-in-prompt {
+    text-transform: uppercase;
+    font-size: 40px;
+}
+
+#sign-in-container a {
+    text-decoration: none;
+    color: #ffffff;
+    transition: 0.2s all linear;
+}
+
+#sign-in-container a:hover {
+    color: #d8d8d7;
+    transition: 0.2s all linear;
+}
+
+#firebaseui-auth-container {
+    padding: 50px 0 10px 0;
+}

@@ -10,13 +10,12 @@ export function makeResultListTemplate(comic) {
                 <span id="comic-codes" hidden="true">${comic.upc} ${comic.id}</span>
             </div>
         </div>
-    
         <div id="result-card-bottom">
-            <span id="result-information">Issue: ${comic.issueNumber} | ${comic.series.name}</span>
-            <span id="result-user-control">
-                <img src="assets/icons/library-noselect.svg" id="library-icon" alt="library">  
-                <img src="assets/icons/wishlist-noselect.svg" id="wishlist-icon" alt="wishlist">
-            </span>
+          <span id="result-information">Issue: ${comic.issueNumber}<br>${comic.series.name}</span>
+          <span id="result-user-control">
+            <img src="assets/icons/library-noselect.svg" id="library-icon" alt="library">  
+            <img src="assets/icons/wishlist-noselect.svg" id="wishlist-icon" alt="wishlist">
+          </span>
         </div>
     </div>
     `;
