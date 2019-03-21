@@ -87,6 +87,11 @@
     transition: 0.1s all linear;
 }
 
+/* .results-button:disabled,
+.results-button[disabled] {
+    background-color: pink;
+} */
+
 #arrow {
     position: relative;
     bottom: 1px;

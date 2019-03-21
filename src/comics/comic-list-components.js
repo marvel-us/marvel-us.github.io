@@ -31,7 +31,6 @@ export default function loadComicList(comics) {
         resultsList.firstChild.remove();
     }
 
-    
     comics.forEach(comic => {
         const html = makeResultListTemplate(comic);
         

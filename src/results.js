@@ -18,6 +18,7 @@ window.addEventListener('hashchange', () => {
     fetchSearchResults();
 });
 
+const resultsList = document.getElementById('results-list');
 
 function fetchSearchResults() {
     const existingQuery = window.location.hash.slice(1);
@@ -28,6 +29,12 @@ function fetchSearchResults() {
     fetch(url)
         .then(response => response.json())
         .then(results => {
+            if(results.data.count === 0) {
+                const noResultsSpan = document.createElement('span');
+                noResultsSpan.classList.add('no-result');
+                noResultsSpan.textContent = 'No results found';
+                resultsList.appendChild(noResultsSpan);
+            }
             return results.data.results[0].id;
         })
         .then(characterId => {
