@@ -3,6 +3,16 @@
     margin: 0;
 }
 
+body {
+    background-image: url('../assets/backgrounds/white-bg.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
+    position: relative;
+}
+
 @font-face{
     font-family:'BentonSans';
     src: url('../assets/fonts/bentonsans.otf') format('opentype');
@@ -42,14 +52,31 @@ ul {
     list-style-type: none;
 }
 
+a {
+    color: #2e2c25;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
 #library-icon, #wishlist-icon {
     cursor: pointer;
     height: 24px;
     margin-left: 5px;
 }
 
+/* #content-container-common {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 130px);
+    justify-content: space-between;
+} */
+
 footer {
-    position: relative;
+    /* position: relative;
+    bottom: 10px; */
     font-size: 10px;
     text-align: center;
     padding: 0 0 20px 0;
@@ -111,4 +138,5 @@ nav a {
 nav a:hover, nav span:hover {
     color: #d3dfe2;
     transition: 0.2s all linear;
+    text-decoration: none;
 }
