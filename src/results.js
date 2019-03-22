@@ -12,17 +12,15 @@ loadHeader();
 if(window.location.hash) {
     auth.onAuthStateChanged(user => {
         if(user) {
-            console.log('in if');
             fetchSearchResults();
         } else {
-            console.log('in else', auth.currentUser);
             fetchSearchResults();
         }
     });
 } 
 
 window.addEventListener('hashchange', () => {
-    console.log('hash change');
+    console.('hash change');
     fetchSearchResults();
 });
 
@@ -51,19 +49,7 @@ function fetchSearchResults() {
                 .then(response => response.json())
                 .then(results => {
                     const comicList = results.data.results;
-                    console.log(auth.currentUser);
-
-                    // auth.onAuthStateChanged(user => {
-                    //     if(user) {
-                    //         loadComicList(comicList);
-                    //     } else {
-                    //         loadComicListWithNoUser(comicList);
-                    //     }
-                    // });
-
-
                     if(!auth.currentUser) {
-                        console.log('farts');
                         loadComicListWithNoUser(comicList);
                     } else {
                         loadComicList(comicList);
@@ -89,9 +75,7 @@ function fetchSearchResults() {
                             else {
                                 window.location = `/detail.html#id=${splitCodes[1]}`;
                             }
-                            
                         });
-    
                     });
                 });
         });

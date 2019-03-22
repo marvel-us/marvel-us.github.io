@@ -65,7 +65,6 @@ export default function loadComicList(comics) {
                 }
                 
                 function addToLibrary() {
-                    console.log(library);
                     inLibrary = true;
                     library.src = 'assets/icons/library-select.svg';
                 }
