@@ -1,4 +1,4 @@
-import { auth, wishlistByUserRef, libraryByUserRef } from '../firebase/firebase.js';
+import { auth, wishlistByUserRef } from '../firebase/firebase.js';
 import loadComics from '../comics/comic-list-components.js';
 import loadHeader from '../shared/header.js';
 import objectToArray from '../object-to-array.js';
