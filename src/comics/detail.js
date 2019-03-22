@@ -3,7 +3,6 @@ import { makeComicUpcSearchUrl, makeComicIdSearchUrl } from './make-search-url.j
 import { makeDetailImageTemplate, makeDetailInfoTemplate } from './detail-info.js';
 import { auth, wishlistByUserRef, libraryByUserRef } from '../firebase/firebase.js';
 
-
 loadHeader();
 
 const currentHashQuery = window.location.hash.slice(1);
@@ -28,8 +27,7 @@ if(comicCodeType === 'upc') {
             makeDetailInfoTemplate(comic);
             makeIconsWork(comic);
         });
-}
-else {
+} else {
     const idUrl = makeComicIdSearchUrl(comicCode);
     fetch(idUrl)
         .then(response => response.json())
@@ -49,6 +47,7 @@ function makeIconsWork(comic) {
     
     const userLibraryRef = libraryByUserRef.child(userId);
     const userLibraryComicRef = userLibraryRef.child(comic.id);
+
     userLibraryComicRef.once('value')
         .then(snapshot => {
             const value = snapshot.val();
@@ -88,10 +87,12 @@ function makeIconsWork(comic) {
 
     const userWishlistRef = wishlistByUserRef.child(userId);
     const userWishlistComicRef = userWishlistRef.child(comic.id);
+
     userWishlistComicRef.once('value')
         .then(snapshot => {
             const value = snapshot.val();
             let inWishlist = false;
+
             if(value) {
                 addToWishlist();
             } else {
@@ -124,5 +125,4 @@ function makeIconsWork(comic) {
                 }
             });
         });
-
 }

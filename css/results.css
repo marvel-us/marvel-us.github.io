@@ -8,7 +8,6 @@
 #user-controls {
     background: #2e2c25;
     color: #ffffff;
-    /* border-bottom: 2px solid #d8d8d7; */
     padding: 10px 30px 12px 30px;
     display: flex;
     justify-content: space-between;
@@ -27,7 +26,6 @@
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     transition: 0.2s all linear;
-
 }
 
 #search-term:focus {
@@ -87,11 +85,6 @@
     border: 2px solid #c4c4c4;
     transition: 0.1s all linear;
 }
-
-/* .results-button:disabled,
-.results-button[disabled] {
-    background-color: pink;
-} */
 
 #arrow {
     position: relative;

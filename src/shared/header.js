@@ -6,6 +6,7 @@ export function makeHeaderTemplate() {
         <a href="index.html"><img src="./assets/marvel-us-logo-white.svg" alt="MarvelUS"></a>
     </header>
     `;
+
     const template = document.createElement('template');
     template.innerHTML = html;
     return template.content;
@@ -45,6 +46,7 @@ const headerContainer = document.getElementById('header-container');
 export default function loadHeader(options) {
     const headerHtml = makeHeaderTemplate();
     headerContainer.appendChild(headerHtml);
+
     if(options && options.skipAuth) {
         return;
     }

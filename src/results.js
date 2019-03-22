@@ -48,6 +48,7 @@ function fetchSearchResults() {
                 .then(response => response.json())
                 .then(results => {
                     const comicList = results.data.results;
+
                     if(!auth.currentUser) {
                         loadComicListWithNoUser(comicList);
                     } else {
@@ -58,6 +59,7 @@ function fetchSearchResults() {
                         page: searchOptions.page,
                         totalPages: Math.ceil(results.data.total / 20)
                     };
+
                     updatePaging(pagingInfo);
 
                     const dom = document.getElementById('results-list');
@@ -68,10 +70,10 @@ function fetchSearchResults() {
                         const splitCodes = comicCodes.textContent.split(' ');
                         comic.addEventListener('click', () => {
                             event.preventDefault();
+
                             if(splitCodes[0]) {
                                 window.location = `/detail.html#upc=${splitCodes[0]}`;
-                            }
-                            else {
+                            } else {
                                 window.location = `/detail.html#id=${splitCodes[1]}`;
                             }
                         });

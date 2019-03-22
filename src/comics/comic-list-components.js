@@ -161,9 +161,8 @@ export default function loadComicList(comics) {
                     }
                 });
             });
-            
+                
         resultsList.appendChild(html);
-
     });
 }
 

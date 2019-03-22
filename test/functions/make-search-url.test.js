@@ -7,7 +7,6 @@ import { makeCharacterSearchUrl, makeComicSearchUrl, makeComicIdSearchUrl, makeC
 test('make character search url', assert => {
     const searchOptions = {
         keyword: 'thor',
-        // page: 1
     };
 
     const expected = 'https://gateway.marvel.com/v1/public/characters?nameStartsWith=thor&apikey=698ecfea67de32ae8e6a3b78e74af2b3';
@@ -19,11 +18,9 @@ test('make character search url', assert => {
 
 test('make comic search url, page 1', assert => {
     const characterId = '123';
-
     const searchOptions = {
         page: 1,
     };
-
     const expected = 'https://gateway.marvel.com/v1/public/comics?characters=123&offset=0&apikey=698ecfea67de32ae8e6a3b78e74af2b3';
     
     const result = makeComicSearchUrl(characterId, searchOptions);
@@ -33,11 +30,9 @@ test('make comic search url, page 1', assert => {
 
 test('make comic search url, page 3', assert => {
     const characterId = '456';
-
     const searchOptions = {
         page: 3,
     };
-
     const expected = 'https://gateway.marvel.com/v1/public/comics?characters=456&offset=40&apikey=698ecfea67de32ae8e6a3b78e74af2b3';
     
     const result = makeComicSearchUrl(characterId, searchOptions);
@@ -46,21 +41,19 @@ test('make comic search url, page 3', assert => {
 });
 
 test('make comic upc search', assert => {
-    // arrange
     const characterUpc = '75960608855301111';
     const expected = 'https://gateway.marvel.com/v1/public/comics?upc=75960608855301111&apikey=698ecfea67de32ae8e6a3b78e74af2b3';
-    // act
+    
     const results = makeComicUpcSearchUrl(characterUpc);
-    // assert
+    
     assert.equal(results, expected);
 });
 
 test('make comic id search', assert => {
-    // arrange
     const characterId = '22253';
     const expected = 'https://gateway.marvel.com/v1/public/comics?digitalId=22253&apikey=698ecfea67de32ae8e6a3b78e74af2b3';
-    // act
+    
     const results = makeComicIdSearchUrl(characterId);
-    // assert
+    
     assert.equal(results, expected);
 });

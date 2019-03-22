@@ -12,12 +12,14 @@ auth.onAuthStateChanged(user => {
     userLibraryRef.on('value', snapshot => {
         const value = snapshot.val();
         const dom = document.getElementById('results-list');
+        
         if(!value) {
             const noResultsSpan = document.createElement('span');
             noResultsSpan.classList.add('no-result');
             noResultsSpan.textContent = 'No results found';
             dom.appendChild(noResultsSpan);
         }
+
         const comics = objectToArray(value);
         loadComics(comics);
         
@@ -28,15 +30,14 @@ auth.onAuthStateChanged(user => {
             const splitCodes = comicCodes.textContent.split(' ');
             comic.addEventListener('click', () => {
                 event.preventDefault();
+
                 if(splitCodes[0]) {
                     window.location = `/detail.html#upc=${splitCodes[0]}`;
                 }
                 else {
                     window.location = `/detail.html#id=${splitCodes[1]}`;
                 }
-                
-            });
-        
+            });       
         });
     });
 });

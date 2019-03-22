@@ -16,7 +16,6 @@ searchForm.addEventListener('submit', event => {
     };
     const newQuery = writeSearchToQuery(existingQuery, searchOptions);
     window.location.hash = newQuery;
-
 });
 
 const searchInput = searchForm.querySelector('input');

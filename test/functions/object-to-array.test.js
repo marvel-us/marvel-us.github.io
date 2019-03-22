@@ -4,7 +4,6 @@ QUnit.module('convert object to array');
 import objectToArray from '../../src/object-to-array.js';
 
 test('converts library/wishlist object into array', assert => {
-    //arrange
     const object = {
         abc: { id: 'abc', name: 'megan' },
         def: { id: 'def', name: 'payton' },
@@ -17,9 +16,7 @@ test('converts library/wishlist object into array', assert => {
         { id: 'ghi', name: 'jared' }
     ];
 
-    //act
     const result = objectToArray(object);
 
-    //assert
     assert.deepEqual(result, expected);
 });

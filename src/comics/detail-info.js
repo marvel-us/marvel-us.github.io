@@ -14,7 +14,6 @@ export function makeDetailImageTemplate(comic) {
 }
 
 export function makeDetailInfoTemplate(comic) {
-
     const title = comic.title;
     const comicCharacters = comic.characters.items;
     const comicCreators = comic.creators.items;
@@ -29,7 +28,7 @@ export function makeDetailInfoTemplate(comic) {
     const descriptionContainer = document.getElementById('description-container');
     const seriesContainer = document.getElementById('series-container');
     const priceContainer = document.getElementById('price');
-
+    
     const h1 = document.createElement('h1');
     h1.textContent = title;
     titleContainer.appendChild(h1);

@@ -10,14 +10,11 @@ body {
     height: calc(100vh - 50px);
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     align-items: center;
     justify-content: flex-start;
     padding: 50px 0 0 50px;
     position: relative;
     animation: fade 1s;
-
-    /* background: pink; */
 }
 
 #auth-logo {
@@ -31,7 +28,6 @@ body {
     position: absolute;
     bottom: 50px;
     flex-direction: column;
-    /* background: pink; */
 }
 
 #sign-in-prompt {

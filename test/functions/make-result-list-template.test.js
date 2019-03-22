@@ -5,7 +5,6 @@ QUnit.module('html template');
 import { makeResultListTemplate } from '../../src/comics/comic-list-components.js';
 
 test('result list for index html template', assert => {
-    // arrange
     const comic = {
         title: 'Ant-Man (2003) #2',
         thumbnail: { path: 'http://i.annihil.us/u/prod/marvel/i/mg/f/20/4bc69f33cafc0', extension: 'jpg' },
@@ -32,9 +31,9 @@ test('result list for index html template', assert => {
             </span>
         </div>
     </div>`;
-    // act
+    
     const result = makeResultListTemplate(comic);
-    // assert
+ 
     assert.htmlEqual(result, expected);
 });
 

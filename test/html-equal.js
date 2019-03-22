@@ -1,4 +1,3 @@
-
 class TemplateError extends Error {}
 
 var pattern = /[\f\n\r\t\v ]{2,}/g;
