@@ -17,27 +17,43 @@ backButton.addEventListener('click', () => {
     window.history.back();
 }); 
 
+const comicImage = document.getElementById('comic-image');
+
 if(comicCodeType === 'upc') {
     const upcUrl = makeComicUpcSearchUrl(comicCode);
     fetch(upcUrl)
         .then(response => response.json())
         .then(results => {
-            const comic = results.data.results[0];
-            makeDetailImageTemplate(comic);
-            makeDetailInfoTemplate(comic);
-            makeIconsWork(comic);
+            if(results.data.count === 0) {
+                const h3 = document.createElement('h3');
+                h3.textContent = 'Comic not found.';
+                comicImage.appendChild(h3);
+            } else {
+                const comic = results.data.results[0];
+                makeDetailImageTemplate(comic);
+                makeDetailInfoTemplate(comic);
+                makeIconsWork(comic);
+            }
         });
 } else {
     const idUrl = makeComicIdSearchUrl(comicCode);
     fetch(idUrl)
         .then(response => response.json())
         .then(results => {
-            const comic = results.data.results[0];
-            makeDetailImageTemplate(comic);
-            makeDetailInfoTemplate(comic);
-            makeIconsWork(comic);
+            if(results.data.count === 0) {
+                const h3 = document.createElement('h3');
+                h3.textContent = 'Comic not found.';
+                comicImage.appendChild(h3);
+            } else {
+                const comic = results.data.results[0];
+                makeDetailImageTemplate(comic);
+                makeDetailInfoTemplate(comic);
+                makeIconsWork(comic);
+            }
         });
 }
+
+
 
 function makeIconsWork(comic) {
     const library = document.getElementById('library-icon');
