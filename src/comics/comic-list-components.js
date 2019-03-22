@@ -15,7 +15,7 @@ export function makeResultListTemplate(comic) {
         <div style="background-image: url(${comicImage})" id="result-card-image">
             <div id="result-card-h2">
                 <h2>${comic.title}</h2>
-                <span id="comic-codes" hidden="true">${comic.upc} ${comic.id}</span>
+                <span id="comic-codes" hidden="true">${comic.upc} ${comic.id} ${comic.digitalId} ean ${comic.ean}</span>
             </div>
         </div>
         <div id="result-card-bottom">
@@ -97,10 +97,12 @@ export default function loadComicList(comics) {
                             title: comic.title,
                             series: { name: comic.series.name },
                             thumbnail: { path: comic.thumbnail.path, extension: comic.thumbnail.extension },
-                            issue: comic.issueNumber,
+                            issueNumber: comic.issueNumber,
                             images: imageObject,
                             upc: comic.upc,
-                            prices: { price: comic.prices[0].price }
+                            prices: { price: comic.prices[0].price },
+                            ean: comic.ean,
+                            digitalId: comic.digitalId
                         });
                         addToLibrary();
                     }
@@ -152,10 +154,12 @@ export default function loadComicList(comics) {
                             title: comic.title,
                             series: { name: comic.series.name },
                             thumbnail: { path: comic.thumbnail.path, extension: comic.thumbnail.extension },
-                            issue: comic.issueNumber,
+                            issueNumber: comic.issueNumber,
                             images: imageObject,
                             upc: comic.upc,
-                            prices: { price: comic.prices[0].price },     
+                            prices: { price: comic.prices[0].price },
+                            ean: comic.ean,
+                            digitalId: comic.digitalId   
                         });
                         addToWishlist();
                     }

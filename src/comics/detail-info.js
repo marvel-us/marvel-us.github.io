@@ -1,3 +1,5 @@
+import { auth } from '../firebase/firebase.js';
+
 const comicImageContainer = document.getElementById('comic-image');
 
 export function makeDetailImageTemplate(comic) {
@@ -46,6 +48,11 @@ export function makeDetailInfoTemplate(comic) {
     imgWishlistIcon.alt = 'wishlist';
     imgWishlistIcon.title = 'Add to wishlist';
     iconContainer.appendChild(imgWishlistIcon);
+
+    if(!auth.currentUser) {
+        imgLibraryIcon.hidden = true;
+        imgWishlistIcon.hidden = true;
+    }
 
     for(let i = 0; i < comicCharacters.length; i++) {
         const character = {

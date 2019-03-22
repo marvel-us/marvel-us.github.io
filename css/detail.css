@@ -7,16 +7,94 @@
 }
 
 main {
+    min-height: calc(100vh - 140px);
     display: grid;
     grid-template-columns: 40% 1fr;
 }
 
-h1 {
+h2 {
     letter-spacing: 3px;
 }
 
-h2 {
+#comic-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#comic-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#comic-image img {
+    height: 600px;
+}
+
+#comic-info-container {
+    display: grid;
+    grid-template-rows: 25px 65px 65px;
+}
+
+#title-icon {
+    grid-row-start: 2;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+
+#title-container {
+    display: flex;
+    align-items: flex-start;
+}
+
+h1 {
     letter-spacing: 3px;
+    font-size: 1.8em;
+}
+
+#icon-container {
+    display: flex;
+    align-items: flex-start;
+}
+
+#series-price {
+    grid-row-start: 3;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#description-container {
+    grid-row-start: 4;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    margin-bottom: 20px;
+}
+
+#description-container p {
+    margin-right: 40px; 
+}
+
+#people {
+    display: flex;
+    flex-grow: 1;
+    grid-row-start: 5;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#all-characters {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+#back-to-search {
+    grid-row-start: 6;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
 }
 
 button {
@@ -36,63 +114,6 @@ button:active {
     transition: 0.1s all linear;
 }
 
-#comic-image-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#comic-image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#comic-image img {
-    height: 500px;
-}
-
-#back-to-search {
-    display: flex;
-    justify-content: flex-start;
-}
-
-#something-appropriate {
-    display: flex;
-    justify-content: space-between
-}
-
-#icon-container {
-    margin-right: 40px;
-}
-
-#title-container {
-    display: flex;
-    align-items: center;
-}
-
-#comic-info-container {
-    display: grid;
-    grid-template-rows: 25px 45px ;
-}
-
-#people {
-    grid-row-start: 3;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
-
-#all-characters {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-}
-
-#description-container p {
-    margin-right: 40px; 
-}
-
-#something-something {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+footer {
+    margin: 10px;
 }
