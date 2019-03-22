@@ -5,7 +5,7 @@ const config = {
     projectId: 'marvelus-4bb64',
 };
 
-firebase.initializeApp(config);
+export const app = firebase.initializeApp(config);
 
 const db = firebase.database();
 
