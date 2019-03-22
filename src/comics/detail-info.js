@@ -2,13 +2,14 @@ const comicImageContainer = document.getElementById('comic-image');
 
 export function makeDetailImageTemplate(comic) {
     let image = comic.images[0];
-
+    
+    const img = document.createElement('img');
     if(!image) {
-        image = comic.thumbnail;
+        img.src = '../../assets/comic-image-placeholder.jpg';
+    } else {
+        img.src = `${image.path}.${image.extension}`;
     }
 
-    const img = document.createElement('img');
-    img.src = `${image.path}.${image.extension}`;
     img.alt = 'comic image';
 
     comicImageContainer.appendChild(img);
