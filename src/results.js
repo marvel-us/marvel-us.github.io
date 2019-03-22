@@ -1,6 +1,6 @@
 import loadComicList, { loadComicListWithNoUser } from './comics/comic-list-components.js';
 import loadHeader from './shared/header.js';
-import { makeCharacterSearchUrl, makeComicSearchUrl, makeComicUpcSearchUrl, makeComicIdSearchUrl } from './comics/make-search-url.js';
+import { makeCharacterSearchUrl, makeComicSearchUrl } from './comics/make-search-url.js';
 import './comics/search-components.js';
 import { readFromQuery } from './comics/hash-query-component.js';
 import { updateSearchTerm } from './comics/search-components.js';
