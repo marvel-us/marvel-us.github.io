@@ -73,6 +73,7 @@ function makeIconsWork(comic) {
         .then(snapshot => {
             const value = snapshot.val();
             let inLibrary = false;
+            
             if(value) {
                 addToLibrary();
             } else {
@@ -94,12 +95,29 @@ function makeIconsWork(comic) {
                     userLibraryComicRef.remove();
                     removeFromLibrary();
                 } else {
+                    let imageObject = {};
+                    if(comic.images.length === 0) {
+                        imageObject = {
+                            path: 'assets/comic-image-placeholder',
+                            extension: 'jpg'
+                        };
+                    } else {
+                        imageObject = {
+                            path: comic.images[0].path, 
+                            extension: comic.images[0].extension 
+                        };
+                    }
                     userLibraryComicRef.set({
                         id: comic.id,
                         title: comic.title,
                         series: { name: comic.series.name },
                         thumbnail: { path: comic.thumbnail.path, extension: comic.thumbnail.extension },
-                        issue: comic.issueNumber
+                        issue: comic.issueNumber,
+                        images: imageObject,
+                        upc: comic.upc,
+                        prices: { price: comic.prices[0].price },
+                        ean: comic.ean,
+                        digitalId: comic.digitalId
                     });
                     addToLibrary();
                 }
@@ -135,12 +153,29 @@ function makeIconsWork(comic) {
                     userWishlistComicRef.remove();
                     removeFromWishlist();
                 } else {
+                    let imageObject = {};
+                    if(comic.images.length === 0) {
+                        imageObject = {
+                            path: 'assets/comic-image-placeholder',
+                            extension: 'jpg'
+                        };
+                    } else {
+                        imageObject = {
+                            path: comic.images[0].path, 
+                            extension: comic.images[0].extension 
+                        };
+                    }
                     userWishlistComicRef.set({
                         id: comic.id,
                         title: comic.title,
                         series: { name: comic.series.name },
                         thumbnail: { path: comic.thumbnail.path, extension: comic.thumbnail.extension },
-                        issue: comic.issueNumber
+                        issue: comic.issueNumber,
+                        images: imageObject,
+                        upc: comic.upc,
+                        prices: { price: comic.prices[0].price },
+                        ean: comic.ean,
+                        digitalId: comic.digitalId
                     });
                     addToWishlist();
                 }
