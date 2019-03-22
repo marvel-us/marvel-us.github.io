@@ -21,7 +21,7 @@ export function makeResultListTemplate(comic) {
         <div id="result-card-bottom">
           <span id="result-information">Issue: ${comic.issueNumber}<br>${comic.series.name}</span>
           <span id="result-user-control">
-            <img src="assets/icons/library-noselect.svg" id="library-icon" alt="Add to library" title="Add to library">  
+            <img src="assets/icons/library-noselect.svg" id="library-icon" class="library-icon" alt="Add to library" title="Add to library">  
             <img src="assets/icons/wishlist-noselect.svg" id="wishlist-icon" alt="Add to wishlist" title="Add to wishlist">
           </span>
         </div>
@@ -175,6 +175,11 @@ export function loadComicListWithNoUser(comics) {
 
     comics.forEach(comic => {
         const html = makeResultListTemplate(comic);
+        const libraryIcon = html.getElementById('library-icon');
+        libraryIcon.classList.add('hidden');
+        const wishlistIcon = html.getElementById('wishlist-icon');
+        wishlistIcon.classList.add('hidden');
+
         resultsList.appendChild(html);
     });
 }
