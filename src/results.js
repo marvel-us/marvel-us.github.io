@@ -21,7 +21,6 @@ if(window.location.hash) {
     });
 } 
 
-
 window.addEventListener('hashchange', () => {
     console.log('hash change');
     fetchSearchResults();
