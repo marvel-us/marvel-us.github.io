@@ -155,7 +155,7 @@ export default function loadComicList(comics) {
                             issue: comic.issueNumber,
                             images: imageObject,
                             upc: comic.upc,
-                            prices: { price: comic.prices[0].price },     
+                            prices: { price: comic.prices[0].price }     
                         });
                         addToWishlist();
                     }
