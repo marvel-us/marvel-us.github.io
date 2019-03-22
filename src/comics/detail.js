@@ -10,6 +10,7 @@ const currentHashQuery = window.location.hash.slice(1);
 const splitQuery = currentHashQuery.split('=');
 const comicCodeType = splitQuery[0];
 const comicCode = splitQuery[1];
+const eanNumArray = comicCode.split('_');
 const backButton = document.getElementById('back-button');
 
 backButton.addEventListener('click', () => {
@@ -32,10 +33,12 @@ if(comicCodeType === 'upc') {
                 const comic = results.data.results[0];
                 makeDetailImageTemplate(comic);
                 makeDetailInfoTemplate(comic);
-                makeIconsWork(comic);
+                if(auth.currentUser) {
+                    makeIconsWork(comic);
+                }
             }
         });
-} else {
+} else if(comicCodeType === 'digitalId') {
     const idUrl = makeComicIdSearchUrl(comicCode);
     fetch(idUrl)
         .then(response => response.json())
@@ -48,7 +51,27 @@ if(comicCodeType === 'upc') {
                 const comic = results.data.results[0];
                 makeDetailImageTemplate(comic);
                 makeDetailInfoTemplate(comic);
-                makeIconsWork(comic);
+                if(auth.currentUser) {
+                    makeIconsWork(comic);
+                }
+            }
+        });
+} else {
+    let eanBaseUrl = `https://gateway.marvel.com/v1/public/comics?ean=${eanNumArray[0]}%20${eanNumArray[1]}%20${eanNumArray[2]}&apikey=698ecfea67de32ae8e6a3b78e74af2b3`;
+    fetch(eanBaseUrl)
+        .then(response => response.json())
+        .then(results => {
+            if(results.data.count === 0) {
+                const h3 = document.createElement('h3');
+                h3.textContent = 'Comic not found.';
+                comicImage.appendChild(h3);
+            } else {
+                const comic = results.data.results[0];
+                makeDetailImageTemplate(comic);
+                makeDetailInfoTemplate(comic);
+                if(auth.currentUser) {
+                    makeIconsWork(comic);
+                }
             }
         });
 }

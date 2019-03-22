@@ -1,6 +1,6 @@
 import loadComicList, { loadComicListWithNoUser } from './comics/comic-list-components.js';
 import loadHeader from './shared/header.js';
-import { makeCharacterSearchUrl, makeComicSearchUrl } from './comics/make-search-url.js';
+import { makeCharacterSearchUrl, makeComicSearchUrl, makeComicUpcSearchUrl, makeComicIdSearchUrl } from './comics/make-search-url.js';
 import './comics/search-components.js';
 import { readFromQuery } from './comics/hash-query-component.js';
 import { updateSearchTerm } from './comics/search-components.js';
@@ -70,11 +70,12 @@ function fetchSearchResults() {
                         const splitCodes = comicCodes.textContent.split(' ');
                         comic.addEventListener('click', () => {
                             event.preventDefault();
-
                             if(splitCodes[0]) {
                                 window.location = `/detail.html#upc=${splitCodes[0]}`;
+                            } else if(splitCodes[2] !== '0') {
+                                window.location = `/detail.html#digitalId=${splitCodes[2]}`;
                             } else {
-                                window.location = `/detail.html#id=${splitCodes[1]}`;
+                                window.location = `/detail.html#ean=${splitCodes[4]}_${splitCodes[5]}_${splitCodes[6]}`;
                             }
                         });
                     });
